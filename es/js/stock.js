@@ -93,6 +93,6 @@ export var popup = {
 
 export var documentals = {
     "d1": {"title": "", "duration": "95 minutos", "release": 2009, "genre1": "Romance", "poster": "500", "type": "Live action", "popindex": 80}
-
+  
   }
     

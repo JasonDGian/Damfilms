@@ -1,9 +1,14 @@
 import { films } from "../js/stock.js";
+import { series } from "../js/stock.js";
+import { documentals } from "../js/stock.js";
+
 var homePopularFilms = document.querySelector('.most-popular-films');
 var homeTopFilms = 10;
-var e = 10;
+var homePopularSeries = document.querySelector('.most-popular-series');
+var homeTopSeries = 10;
+var contador = 10;
 
-while(e >= 1){
+while(contador >= 1){
 for (var i in films){
     
     if (films[i].popindex == homeTopFilms) {
@@ -15,7 +20,7 @@ for (var i in films){
         <div id="popularFilmCard${i}" class="boxes">
         <div class="box-content">
         <p style=" ">${films[i].popindex}</p>
-                <div class="box-content-son" onclick="showPopup(${i})">
+                <div class="box-content-son pmg-box-margin" onclick="showPopup(${i})">
                     <h5 class="titulopelicula">${films[i].title}</h5>
                     <p class="duracion">
                     ${films[i].duration}
@@ -30,8 +35,7 @@ for (var i in films){
         var bgimg = document.getElementById(`popularFilmCard${i}`)
         bgimg.style.backgroundImage = `url('img/170x240/films/${films[i].poster}.png')`;
     }
-       
 }
-            e--;
+        contador--;
     homeTopFilms--;    
 }

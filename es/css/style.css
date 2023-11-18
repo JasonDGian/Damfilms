@@ -48,10 +48,13 @@ body{
 
 /* CAJA HIJA DE OBJETO POSTER*/
 .box-content-son{
-    margin-top: -40px;
     text-align:center;
     height: 240px;
     width: 170px;
+}
+
+.pmg-box-margin{
+    margin-top: -40px;
 }
 /*efecto on hover de poster*/
 .box-content-son:hover{
