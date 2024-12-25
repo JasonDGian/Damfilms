@@ -35,5 +35,4 @@ public class Usuario {
 	@ManyToOne
 	private Direccion direccion;
 
-	
 }

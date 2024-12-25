@@ -1,4 +1,5 @@
 package es.iesjandula.damfilms.models;
+
 import es.iesjandula.damfilms.models.Ids.UsuarioSerieId;
 import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
@@ -29,6 +30,7 @@ public class UsuarioSerie {
 	@JoinColumn(referencedColumnName = "id")
 	private Serie serie;
 	
+	@Column
 	private int capituloEnProgeso;
 
 }

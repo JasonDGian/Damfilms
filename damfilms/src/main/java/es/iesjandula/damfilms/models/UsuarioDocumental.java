@@ -31,6 +31,7 @@ public class UsuarioDocumental {
 	@MapsId("documentalId")
 	private Documental documental;
 	
+	@Column
 	private int minutoEnProgeso;
 
 }

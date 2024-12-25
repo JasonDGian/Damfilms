@@ -1,7 +1,6 @@
 package es.iesjandula.damfilms.models.Ids;
 
 import java.io.Serializable;
-import java.sql.Date;
 
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;

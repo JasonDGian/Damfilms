@@ -30,6 +30,7 @@ public class UsuarioPelicula {
 	@MapsId("peliculaId")
 	private Pelicula pelicula;
 	
+	@Column
 	private int minutoEnProgeso;
 
 }
