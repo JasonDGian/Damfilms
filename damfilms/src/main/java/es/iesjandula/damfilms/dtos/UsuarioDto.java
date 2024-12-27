@@ -1,7 +1,5 @@
 package es.iesjandula.damfilms.dtos;
 
-import es.iesjandula.damfilms.models.Configuracion;
-import es.iesjandula.damfilms.models.Direccion;
 import es.iesjandula.damfilms.models.Suscripcion;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,10 +16,16 @@ public class UsuarioDto {
 	
 	private String password;
 	
+	private Boolean usuarioActivo;
+	
 	private Suscripcion suscripcion;
+		
+	private String fotoPerfil;
 	
-	private Configuracion configuracion;
+	private Boolean temaOscuro;
 	
-	private Direccion direccion;
+	private Boolean modoNoOyentes;
+	
+	private Boolean contenidoAdultos;
 
 }

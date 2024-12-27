@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Recurso No Encontrado</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #3b3b3b, #111111); /* Degradado de gris muy oscuro a casi negro */
+            color: #fff; /* Texto en blanco para contrastar mejor */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .container {
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 25px 50px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            max-width: 500px;
+        }
+        .status-code {
+            font-size: 60px;
+            font-weight: bold;
+            color: #e74c3c; /* Rojo brillante para "404" */
+        }
+        .message {
+            font-size: 32px;
+            margin: 15px 0;
+            font-weight: 600;
+            color: #333; /* Color oscuro para el mensaje */
+        }
+        .warning {
+            font-size: 18px;
+            color: #555;
+            margin-top: 20px;
+        }
+        .contact {
+            font-size: 16px;
+            color: #888;
+            margin-top: 20px;
+            font-style: italic;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 25px;
+            font-size: 18px;
+            color: #3498db; /* Color azul para el enlace */
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="status-code">404</div>
+        <div class="message">Recurso No Encontrado</div>
+        <div class="warning">
+            La página o el recurso al que intentas acceder no está disponible en este momento.
+            <br>Verifica la URL o regresa al inicio.
+        </div>
+        <div class="contact">
+            Si crees que esto es un error, contáctanos a través del soporte técnico.
+        </div>
+        <!-- Enlace con Thymeleaf -->
+        <a class="back-link" href="#" th:href="@{/index}">Volver al inicio</a>
+    </div>
+</body>
+</html>

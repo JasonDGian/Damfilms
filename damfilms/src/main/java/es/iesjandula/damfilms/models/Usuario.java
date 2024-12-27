@@ -26,13 +26,26 @@ public class Usuario {
 	@Column(nullable = false)
 	private String password;
 	
+	@Column
+	private Boolean usuarioActivo;
+	
 	@ManyToOne
 	private Suscripcion suscripcion;
+		
+	@Column
+	private String fotoPerfil;
+	
+	@Column
+	private Boolean temaOscuro;
+	
+	@Column
+	private Boolean modoNoOyentes;
+	
+	@Column
+	private Boolean contenidoAdultos;
 	
 	@ManyToOne
-	private Configuracion configuracion;
+	private Role role;
 	
-	@ManyToOne
-	private Direccion direccion;
 
 }
