@@ -42,7 +42,6 @@ public class DamfilmsUserDetailsService implements UserDetailsService
 	@Autowired
 	private IRoleRepository iRoleRepository ;
 	
-
 	// Metodo que comprueba si un usuario existe.
     public boolean existsByUsername(String email)
     {

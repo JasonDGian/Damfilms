@@ -1,6 +1,6 @@
 package es.iesjandula.damfilms.models;
 
-import java.sql.Date;
+import java.util.Date;
 
 import es.iesjandula.damfilms.models.Ids.TemporadaId;
 import jakarta.persistence.Column;

@@ -1,6 +1,6 @@
 package es.iesjandula.damfilms.models;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 import es.iesjandula.damfilms.models.Ids.PeliculaId;
