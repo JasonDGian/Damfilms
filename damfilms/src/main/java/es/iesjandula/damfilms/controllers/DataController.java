@@ -8,6 +8,16 @@ public class DataController
 {
 	
 	
+	// ----------------------- UTILIDADES FORMULARIOS. --------------------
+	/**
+	 * Endpoint - /data/suscripciones
+	 * Metodo 	- getSuscripciones
+	 * 
+	 * Devuelve un listado de suscripciones almacenadas en BBDD.
+	 * Este metodo alimentará un endpoint en el front.
+	 * 
+	 */
+	
 	// -----------------------  SERIES -------------------------------------
 	
 	/**
