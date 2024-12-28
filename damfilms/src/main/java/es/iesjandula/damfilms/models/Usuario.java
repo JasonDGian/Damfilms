@@ -1,9 +1,12 @@
 package es.iesjandula.damfilms.models;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,10 +31,7 @@ public class Usuario {
 	
 	@Column
 	private Boolean usuarioActivo;
-	
-	@ManyToOne
-	private Suscripcion suscripcion;
-		
+			
 	@Column
 	private String fotoPerfil;
 	
@@ -44,8 +44,7 @@ public class Usuario {
 	@Column
 	private Boolean contenidoAdultos;
 	
-	@ManyToOne
-	private Role role;
-	
+	@OneToMany(mappedBy = "usuario")
+	private List<SuscripcionUsuario> suscripciones;
 
 }

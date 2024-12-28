@@ -1,6 +1,9 @@
 package es.iesjandula.damfilms.dtos;
 
+import java.util.List;
+
 import es.iesjandula.damfilms.models.Suscripcion;
+import es.iesjandula.damfilms.models.SuscripcionUsuario;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,9 +20,7 @@ public class UsuarioDto {
 	private String password;
 	
 	private Boolean usuarioActivo;
-	
-	private Suscripcion suscripcion;
-		
+			
 	private String fotoPerfil;
 	
 	private Boolean temaOscuro;
@@ -27,5 +28,8 @@ public class UsuarioDto {
 	private Boolean modoNoOyentes;
 	
 	private Boolean contenidoAdultos;
+	
+	private List<SuscripcionUsuarioDto> suscripciones;
+
 
 }

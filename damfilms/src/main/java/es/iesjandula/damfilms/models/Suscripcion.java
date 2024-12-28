@@ -19,18 +19,15 @@ public class Suscripcion {
 	
 	@Id
 	@Column
-	private String tipo;
+	private String role;
 	
 	@Column(nullable = false)
-	private Double precio;
+	private String nombre;
 	
-	@Column
-	private String metodoPago;
-	
-	@Column
-	private Date fecha_facturacion;
+	@Column(nullable = false)
+	private Double precioMensual;
 	
 	@OneToMany(mappedBy = "suscripcion")
-	private List<Usuario> usuarios;
+	private List<SuscripcionUsuario> suscripcionUsuarios;
 
 }

@@ -3,7 +3,11 @@ package es.iesjandula.damfilms.dtos;
 import java.sql.Date;
 import java.util.List;
 
+import es.iesjandula.damfilms.models.SuscripcionUsuario;
 import es.iesjandula.damfilms.models.Usuario;
+import jakarta.persistence.Column;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,14 +17,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class SuscripcionDto {
 	
-	private String tipo;
+	private String role;
 	
-	private Double precio;
+	private String nombre;
 	
-	private String metodoPago;
+	private Double precioMensual;
 	
-	private Date fecha_facturacion;
-	
-	private List<Usuario> usuarios;
+	private List<SuscripcionUsuarioDto> suscripcionUsuarios;
 
 }
