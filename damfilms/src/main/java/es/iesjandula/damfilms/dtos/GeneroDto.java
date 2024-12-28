@@ -16,4 +16,8 @@ public class GeneroDto {
 	
 	private List<Documental> documentales;
 	
+	private List<PeliculaDto> peliculas;
+	
+	private List<SerieDto> series;
+	
 }

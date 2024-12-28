@@ -40,7 +40,20 @@ public class Serie {
 	@Column(nullable = false)
 	private Date fechaLlegada;
 	
+	@Column
+	private String sinopsis;
+	
 	@ManyToOne
 	private Tipo tipo;
+	
+	@OneToMany(mappedBy = "serie")
+	private List<Temporada> temporadas;
+	
+	@OneToMany(mappedBy = "serie")
+	private List<GeneroSerie> generos;
+	
+	@OneToMany(mappedBy = "serie")
+	private List<UsuarioSerie> usuarios;
+	
 
 }

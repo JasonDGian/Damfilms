@@ -1,6 +1,5 @@
 package es.iesjandula.damfilms.models;
 
-import java.sql.Date;
 import java.util.List;
 
 import jakarta.persistence.Column;

@@ -1,7 +1,6 @@
 package es.iesjandula.damfilms.models;
 
 import java.util.Date;
-import java.util.List;
 
 import es.iesjandula.damfilms.models.Ids.SuscripcionUsuarioId;
 import jakarta.persistence.Column;

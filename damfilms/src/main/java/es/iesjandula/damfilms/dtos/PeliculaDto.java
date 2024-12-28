@@ -1,6 +1,7 @@
 package es.iesjandula.damfilms.dtos;
 
 import java.sql.Date;
+import java.util.List;
 
 import es.iesjandula.damfilms.models.Tipo;
 import lombok.AllArgsConstructor;
@@ -22,6 +23,12 @@ public class PeliculaDto {
 
 	private Date fechaLlegada;
 	
+	private String sinopsis;
+	
 	private Tipo tipo;
+	
+	private List<GeneroDto> generos;
+	
+	private List<UsuarioDto> usuarios;
 
 }

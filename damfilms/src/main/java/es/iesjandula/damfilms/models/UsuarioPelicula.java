@@ -1,11 +1,10 @@
 package es.iesjandula.damfilms.models;
+
 import es.iesjandula.damfilms.models.Ids.UsuarioPeliculaId;
-import es.iesjandula.damfilms.models.Ids.UsuarioSerieId;
 import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinColumns;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.MapsId;
 import lombok.AllArgsConstructor;

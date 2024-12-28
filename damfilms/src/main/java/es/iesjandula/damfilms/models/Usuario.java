@@ -5,7 +5,6 @@ import java.util.List;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -45,6 +44,16 @@ public class Usuario {
 	private Boolean contenidoAdultos;
 	
 	@OneToMany(mappedBy = "usuario")
-	private List<SuscripcionUsuario> suscripciones;
+	private List<SuscripcionUsuario> suscripcionUsuarios;
+	
+	@OneToMany(mappedBy = "usuario")
+	private List<UsuarioDocumental> documentales;
+
+	@OneToMany(mappedBy = "usuario")
+	private List<UsuarioSerie> series;
+
+	@OneToMany(mappedBy = "usuario")
+	private List<UsuarioPelicula> peliculas;
+
 
 }

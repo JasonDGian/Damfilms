@@ -23,4 +23,10 @@ public class Genero {
 	@OneToMany(mappedBy = "genero")
 	private List<Documental> documentales;
 	
+	@OneToMany(mappedBy = "genero")
+	private List<GeneroPelicula> Peliculas;
+	
+	@OneToMany(mappedBy = "genero")
+	private List<GeneroSerie> Series;
+	
 }

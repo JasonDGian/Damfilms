@@ -1,12 +1,14 @@
 package es.iesjandula.damfilms.models;
 
 import java.sql.Date;
+import java.util.List;
 
 import es.iesjandula.damfilms.models.Ids.PeliculaId;
 import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -32,7 +34,17 @@ public class Pelicula {
 	@Column(nullable = false)
 	private Date fechaLlegada;
 	
+	@Column
+	private String sinopsis;
+	
 	@ManyToOne
 	private Tipo tipo;
+	
+	@OneToMany(mappedBy = "pelicula")
+	private List<GeneroPelicula> generos;
+	
+	@OneToMany(mappedBy = "pelicula")
+	private List<UsuarioPelicula> usuarios;
+	
 
 }

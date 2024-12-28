@@ -1,8 +1,9 @@
 package es.iesjandula.damfilms.dtos;
 
 import java.sql.Date;
+import java.util.List;
 
-import es.iesjandula.damfilms.models.Genero;
+import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,9 +21,13 @@ public class DocumentalDto {
 	
 	private int popindex;
 	
-	private Date fecha_llegada;
+	private Date fechaLlegada;
 	
-	private Genero genero;
+	private String sinopsis;
+	
+	private GeneroDto genero;
+	
+	private List<UsuarioDto> usuarios;
 	
 	
 
