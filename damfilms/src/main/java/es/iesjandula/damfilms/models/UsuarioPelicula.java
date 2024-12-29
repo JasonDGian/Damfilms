@@ -1,6 +1,6 @@
 package es.iesjandula.damfilms.models;
 
-import es.iesjandula.damfilms.models.Ids.UsuarioPeliculaId;
+import es.iesjandula.damfilms.models.ids.UsuarioPeliculaId;
 import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;

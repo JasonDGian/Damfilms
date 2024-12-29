@@ -1,4 +1,4 @@
-package es.iesjandula.damfilms.models.Ids;
+package es.iesjandula.damfilms.models.ids;
 
 import java.io.Serializable;
 
@@ -11,9 +11,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Embeddable
-public class UsuarioDocumentalId implements Serializable{
+public class UsuarioPeliculaId implements Serializable{
 	
-
 	/**
 	 * 
 	 */
@@ -21,6 +20,6 @@ public class UsuarioDocumentalId implements Serializable{
 
 	private String email;
 	
-	private DocumentalId documentalId;
+	private PeliculaId peliculaId;
 
 }

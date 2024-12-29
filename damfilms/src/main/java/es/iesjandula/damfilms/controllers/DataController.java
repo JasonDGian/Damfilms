@@ -44,7 +44,6 @@ public class DataController
 	 * reciente a menos reciente a partir de su fecha de subida.
 	 */
 	
-
 	// -----------------------  PELICULAS -------------------------------------
 	
 	/**

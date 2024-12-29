@@ -20,7 +20,7 @@ public class Suscripcion {
 	@Column
 	private String role;
 	
-	@Column(nullable = false)
+	@Column(nullable = false, unique = true)
 	private String nombre;
 	
 	@Column(nullable = false)

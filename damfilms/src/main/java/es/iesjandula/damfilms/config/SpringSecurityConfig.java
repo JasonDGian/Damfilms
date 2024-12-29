@@ -73,7 +73,8 @@ public class SpringSecurityConfig
 							"/login", 
 							"/forbidden", 
 							"/eula", 
-							"/signup", 
+							"/signup",
+							"/register",
 							"/not-found"
 						)
 						.permitAll()

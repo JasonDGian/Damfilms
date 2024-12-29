@@ -1,4 +1,4 @@
-package es.iesjandula.damfilms.services;
+package es.iesjandula.damfilms.services.parsers;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 import es.iesjandula.damfilms.models.Documental;
 import es.iesjandula.damfilms.models.Genero;
-import es.iesjandula.damfilms.models.Ids.DocumentalId;
+import es.iesjandula.damfilms.models.ids.DocumentalId;
 import es.iesjandula.damfilms.repositories.IDocumentalRepository;
 import es.iesjandula.damfilms.repositories.IGeneroRepository;
 import es.iesjandula.damfilms.utils.DamfilmsServerError;

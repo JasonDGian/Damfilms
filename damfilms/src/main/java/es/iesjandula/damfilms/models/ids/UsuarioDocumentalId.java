@@ -1,7 +1,6 @@
-package es.iesjandula.damfilms.models.Ids;
+package es.iesjandula.damfilms.models.ids;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
@@ -12,15 +11,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Embeddable
-public class DocumentalId implements Serializable{
+public class UsuarioDocumentalId implements Serializable{
 	
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private String titulo;
+	private String email;
 	
-	private Date fechaLanzamiento;
+	private DocumentalId documentalId;
 
 }

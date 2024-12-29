@@ -14,106 +14,194 @@ import es.iesjandula.damfilms.utils.Constants;
 import es.iesjandula.damfilms.utils.DamfilmsServerError;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * Controlador para gestionar las vistas y páginas principales de la aplicación DAMFILMS.
+ * 
+ * <p>Esta clase actúa como un controlador en la arquitectura MVC de Spring. 
+ * Gestiona las rutas y proporciona las vistas correspondientes para las páginas, paginas y la autenticación de usuarios.</p>
+ * 
+ * <p>Las funcionalidades principales incluyen:</p>
+ * <ul>
+ *   <li>Rutas para mostrar páginas de error personalizadas como "403 Prohibido" y "404 No encontrado".</li>
+ *   <li>Rutas para las secciones principales de la plataforma: inicio, catálogos y configuración.</li>
+ *   <li>Gestión de vistas relacionadas con la autenticación de usuarios, como login y registro.</li>
+ *   <li>Un endpoint para registrar nuevos usuarios en la plataforma, gestionando la lógica
+ *       de validación y almacenamiento en la base de datos.</li>
+ * </ul>
+ * 
+ * <p>Este controlador utiliza las siguientes dependencias inyectadas:</p>
+ * <ul>
+ *   <li>{@link DamfilmsUserDetailsService}: Servicio para gestionar la lógica relacionada con usuarios.</li>
+ *   <li>{@link BCryptPasswordEncoder}: Codificador para cifrar las contraseñas de manera segura.</li>
+ * </ul>
+ * 
+ * <p>Además, utiliza la anotación {@code @Slf4j} para habilitar la generación de logs,
+ * facilitando la depuración y el seguimiento de eventos en la aplicación.</p>
+ *  
+ * @see DamfilmsUserDetailsService
+ * @see BCryptPasswordEncoder
+ * 
+ * @author David J. Gianmoena
+ * @see <a href="https://github.com/tu-usuario">GitHub - David J. Gianmoena</a>
+ * 
+ */
 @Controller
 @Slf4j
 public class WebViewController
 {
 	
+	// Inyección de la clase personalizada que extiende UserDetailsService.
+	// Este objeto se utiliza para gestionar y obtener los datos de los usuarios,
+	// incluyendo la validación de credenciales y la carga de información de autenticación.
 	@Autowired
 	DamfilmsUserDetailsService userDetailServer;
+
 	
+	// Inyección del codificador de contraseñas BCrypt.
+	// Este objeto se utiliza para cifrar las contraseñas de los usuarios de forma segura,
+	// utilizando el algoritmo BCrypt.
 	@Autowired
 	BCryptPasswordEncoder passwordEncoder;
+
 	
 	// ------------------ RUTAS ERRORES  --------------------
-	
+
+	/**
+	 * Muestra la página de error personalizada para el código HTTP 403 (Prohibido).
+	 * 
+	 * @return la vista correspondiente al error 403.
+	 */
 	@GetMapping(value = "/forbidden")
-	public String getForbiddenErrorPage()
-	{
-		log.debug("Entregando /index a cliente mediante '/'.");
-		return "forbidden";
+	public String getForbiddenErrorPage() {
+	    log.debug("{} - Redirigiendo el cliente hacia '/forbidden'.", Constants.DEBUG_TAG);
+	    return "forbidden";
 	}
-	
+
+	/**
+	 * Muestra la página de error personalizada para el código HTTP 404 (No encontrado).
+	 * 
+	 * @return la vista correspondiente al error 404.
+	 */
 	@GetMapping(value = "/not-found")
-	public String getNotFoundErrorPage()
-	{
-		log.debug("Entregando /not-found-error a cliente mediante '/'.");
-		return "not-found-error";
+	public String getNotFoundErrorPage() {
+	    log.debug("{} - Redirigiendo el cliente hacia '/not-found-error'.", Constants.DEBUG_TAG);
+	    return "not-found-error";
 	}
-	
+
 	// ------------------ RUTAS PLATAFORMA  --------------------
-	
+
+	/**
+	 * Muestra la página de los términos y condiciones (EULA) de la plataforma.
+	 * 
+	 * @return la vista correspondiente a la página de términos y condiciones.
+	 */
 	@GetMapping(value = "/eula")
-	public String getEulaPage()
-	{
-		log.debug("Entregando /eula al cliente.");
-		return "eula";
+	public String getEulaPage() {
+	    log.debug("{} - Redirigiendo el cliente hacia '/eula'.", Constants.DEBUG_TAG);
+	    return "eula";
 	}
-	
+
+	/**
+	 * Muestra la página principal (raíz) de la plataforma.
+	 * 
+	 * @return la vista correspondiente a la página principal.
+	 */
 	@GetMapping(value = "/")
-	public String getRootPage()
-	{
-		log.debug("Entregando /index a cliente mediante '/'.");
-		return "index";
+	public String getRootPage() {
+	    log.debug("{} - Redirigiendo el cliente hacia '/index' desde '/'.", Constants.DEBUG_TAG);
+	    return "index";
 	}
 
+	/**
+	 * Muestra la página de inicio de la plataforma.
+	 * 
+	 * @return la vista correspondiente a la página de inicio.
+	 */
 	@GetMapping(value = "/index")
-	public String getIndexPage()
-	{
-		log.debug("Entregando /index a cliente mediante '/index'.");
-		return "index";
+	public String getIndexPage() {
+	    log.debug("{} - Redirigiendo el cliente hacia '/index'.", Constants.DEBUG_TAG);
+	    return "index";
 	}
 
+	/**
+	 * Muestra la página de inicio de la plataforma después de la autenticación.
+	 * 
+	 * @return la vista correspondiente a la página de inicio del usuario.
+	 */
 	@GetMapping(value = "/home")
-	public String getHomePage()
-	{
-		log.debug("Entregando /home al cliente.");
-		return "home";
-	}
-	
-	@GetMapping(value = "/catalog-documentaries")
-	public String getDocumentariesPage()
-	{
-		log.debug("Entregando /catalog-documentaries al cliente.");
-		return "catalog-documentaries";
-	}
-	
-	@GetMapping(value = "/catalog-series")
-	public String getSeriesPage()
-	{
-		log.debug("Entregando /catalog-series al cliente.");
-		return "catalog-series";
-	}
-	
-	@GetMapping(value = "/catalog-movies")
-	public String getMoviesPage()
-	{
-		log.debug("Entregando /catalog-movies al cliente.");
-		return "/catalog-movies";
-	}
-	
-	@GetMapping(value = "/config-main")
-	public String getMainConfigPage()
-	{
-		log.debug("Entregando /config-main al cliente.");
-		return "/config-main";
-	}
-	
-	// ------------------ RUTAS AUTENTICACION  --------------------
-	
-	@GetMapping(value = "/login")
-	public String getLoginPage()
-	{
-		log.debug("Entregando /login al cliente.");
-		return "login";
+	public String getHomePage() {
+	    log.debug("{} - Redirigiendo el cliente hacia '/home'.", Constants.DEBUG_TAG);
+	    return "home";
 	}
 
-	@GetMapping(value = "/signup")
-	public String getSignupPage()
-	{
-		log.debug("lanzando signup al cliente.");
-		return "sign-up";
+	/**
+	 * Muestra la página de catálogo de documentales.
+	 * 
+	 * @return la vista correspondiente al catálogo de documentales.
+	 */
+	@GetMapping(value = "/catalog-documentaries")
+	public String getDocumentariesPage() {
+	    log.debug("{} - Redirigiendo el cliente hacia '/catalog-documentaries'.", Constants.DEBUG_TAG);
+	    return "catalog-documentaries";
 	}
+
+	/**
+	 * Muestra la página de catálogo de series.
+	 * 
+	 * @return la vista correspondiente al catálogo de series.
+	 */
+	@GetMapping(value = "/catalog-series")
+	public String getSeriesPage() {
+	    log.debug("{} - Redirigiendo el cliente hacia '/catalog-series'.", Constants.DEBUG_TAG);
+	    return "catalog-series";
+	}
+
+	/**
+	 * Muestra la página de catálogo de películas.
+	 * 
+	 * @return la vista correspondiente al catálogo de películas.
+	 */
+	@GetMapping(value = "/catalog-movies")
+	public String getMoviesPage() {
+	    log.debug("{} - Redirigiendo el cliente hacia '/catalog-movies'.", Constants.DEBUG_TAG);
+	    return "/catalog-movies";
+	}
+
+	/**
+	 * Muestra la página de configuración principal de la plataforma.
+	 * 
+	 * @return la vista correspondiente a la página de configuración principal.
+	 */
+	@GetMapping(value = "/config-main")
+	public String getMainConfigPage() {
+	    log.debug("{} - Redirigiendo el cliente hacia '/config-main'.", Constants.DEBUG_TAG);
+	    return "/config-main";
+	}
+
+	// ------------------ RUTAS AUTENTICACION  --------------------
+
+	/**
+	 * Muestra la página de inicio de sesión (login) para la autenticación del usuario.
+	 * 
+	 * @return la vista correspondiente a la página de login.
+	 */
+	@GetMapping(value = "/login")
+	public String getLoginPage() {
+	    log.debug("{} - Redirigiendo el cliente hacia '/login'.", Constants.DEBUG_TAG);
+	    return "login";
+	}
+
+	/**
+	 * Muestra la página de registro (signup) para la creación de una nueva cuenta de usuario.
+	 * 
+	 * @return la vista correspondiente a la página de registro.
+	 */
+	@GetMapping(value = "/signup")
+	public String getSignupPage() {
+	    log.debug("{} - Redirigiendo el cliente hacia '/signup'.", Constants.DEBUG_TAG);
+	    return "sign-up";
+	}
+
 
 	/**
 	 * Endpoint para registrar nuevos usuarios en la plataforma. Recibe un DTO y un
@@ -141,7 +229,7 @@ public class WebViewController
 	@PostMapping(value = "/signup")
 	public String userSignup( @RequestBody UsuarioDto usuarioDto , Model model )
 	{
-		
+				
 		log.debug("{} - Comenzando proceso de registro usuario.", Constants.DEBUG_TAG);
 		// Comprueba si el correo está disponible.
 		if ( this.userDetailServer.existsByUsername(usuarioDto.getEmail()) ){
@@ -150,8 +238,10 @@ public class WebViewController
 			model.addAttribute("signupError", true);
 			model.addAttribute("signupError", "El correo introducido ya está registrado.");
 			// Vuelve a la pagina de registro con el modelo cargado.
-			return "/signup";
+			return "sig-nup";
 		}
+		
+		
 		
 		// Si el correo no está ya registrado...
 		

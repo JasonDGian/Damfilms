@@ -1,4 +1,4 @@
-package es.iesjandula.damfilms.models.Ids;
+package es.iesjandula.damfilms.models.ids;
 
 import java.io.Serializable;
 import java.util.Date;

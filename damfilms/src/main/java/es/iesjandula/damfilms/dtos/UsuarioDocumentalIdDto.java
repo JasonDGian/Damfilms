@@ -1,6 +1,6 @@
 package es.iesjandula.damfilms.dtos;
 
-import es.iesjandula.damfilms.models.Ids.DocumentalId;
+import es.iesjandula.damfilms.models.ids.DocumentalId;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -1,21 +1,21 @@
-package es.iesjandula.damfilms.services;
+package es.iesjandula.damfilms.services.parsers;
 
 import java.util.Scanner;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import es.iesjandula.damfilms.models.Tipo;
-import es.iesjandula.damfilms.repositories.ITipoRepository;
+import es.iesjandula.damfilms.models.Genero;
+import es.iesjandula.damfilms.repositories.IGeneroRepository;
 import es.iesjandula.damfilms.utils.DamfilmsServerError;
 
 @Service
-public class ParseoTipoImpl implements IParseoTipo
+public class ParseoGeneroImpl implements IParseoGenero
 {
 
 	@Autowired
-	ITipoRepository tipoRepository;
-	
+	IGeneroRepository generoRepository;
+		
 	@Override
 	public void parseaFicheros(Scanner scanner) throws DamfilmsServerError 
 	{
@@ -27,11 +27,11 @@ public class ParseoTipoImpl implements IParseoTipo
 
 		String lineaDelFichero = scanner.nextLine();
 
-		Tipo tipo = new Tipo();
-
-		tipo.setNombre(lineaDelFichero);
-		
-		this.tipoRepository.saveAndFlush(tipo);
+		Genero genero = new Genero();
+			
+		genero.setNombre(lineaDelFichero);
+				
+		this.generoRepository.saveAndFlush(genero);
 		}
 
 	}

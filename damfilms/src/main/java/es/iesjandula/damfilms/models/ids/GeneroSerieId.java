@@ -1,4 +1,4 @@
-package es.iesjandula.damfilms.models.Ids;
+package es.iesjandula.damfilms.models.ids;
 
 import java.io.Serializable;
 
@@ -11,14 +11,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Embeddable
-public class TemporadaId implements Serializable{
+public class GeneroSerieId implements Serializable{
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private int numeroTemporada;
+	private String nombre;
 	
 	private Long id;
 

@@ -4,7 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import es.iesjandula.damfilms.models.UsuarioDocumental;
-import es.iesjandula.damfilms.models.Ids.UsuarioDocumentalId;
+import es.iesjandula.damfilms.models.ids.UsuarioDocumentalId;
 
 @Repository
 public interface IUsuarioDocumentalRepository extends JpaRepository<UsuarioDocumental, UsuarioDocumentalId>{

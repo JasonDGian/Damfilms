@@ -2,7 +2,7 @@ package es.iesjandula.damfilms.models;
 
 import java.util.Date;
 
-import es.iesjandula.damfilms.models.Ids.TemporadaId;
+import es.iesjandula.damfilms.models.ids.TemporadaId;
 import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;

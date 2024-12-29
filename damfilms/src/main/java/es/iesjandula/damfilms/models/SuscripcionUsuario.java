@@ -2,7 +2,7 @@ package es.iesjandula.damfilms.models;
 
 import java.util.Date;
 
-import es.iesjandula.damfilms.models.Ids.SuscripcionUsuarioId;
+import es.iesjandula.damfilms.models.ids.SuscripcionUsuarioId;
 import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
@@ -28,15 +28,8 @@ public class SuscripcionUsuario {
 	@ManyToOne
 	@MapsId("role")
 	private Suscripcion suscripcion;
-	
-	@Column
-	private Date fechaInicio;
-
-	@Column
-	private Date fechaFin;
 
 	@Column
 	private Double totalPrecio;
-
 
 }
