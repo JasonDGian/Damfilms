@@ -1,7 +1,9 @@
 package es.iesjandula.damfilms.models.Ids;
 
 import java.io.Serializable;
+import java.util.Date;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,5 +21,9 @@ public class SuscripcionUsuarioId implements Serializable {/**
 	private String role;
 	
 	private String email;
+	
+	private Date fechaInicio;
+
+	private Date fechaFin;
 	
 }

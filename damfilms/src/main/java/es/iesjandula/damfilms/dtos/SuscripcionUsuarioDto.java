@@ -17,10 +17,6 @@ public class SuscripcionUsuarioDto
 	
 	private SuscripcionDto suscripcion;
 	
-	private Date fechaInicio;
-
-	private Date fechaFin;
-
 	private Double totalPrecio;
 	
 }
