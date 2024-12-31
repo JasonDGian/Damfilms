@@ -57,22 +57,22 @@
                             <!-- lista de objetos que se colapsan.-->
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li class="nav-item-left">
-                                    <a class="nav-link active" aria-current="page" href="home.html">
+                                    <a class="nav-link active" aria-current="page" th:href="home">
                                         <div id="home-icon">Home</div>
                                     </a>
                                 </li>
                                 <li class="nav-item-left">
-                                    <a class="nav-link active" href="catalog-series.html"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+                                    <a class="nav-link active" th:href="catalog-series"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
                                         <div id="series-icon-active">Series</div>
                                     </a>
                                 </li>
                                 <li class="nav-item-left">
-                                    <a class="nav-link active" href="catalog-movies.html"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+                                    <a class="nav-link active" th:href="catalog-movies"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
                                         <div id="films-icon">Películas</div>
                                     </a>
                                 </li>
                                 <li class="nav-item-left">
-                                    <a class="nav-link active" href="catalog-documentals.html" > <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+                                    <a class="nav-link active" th:href="catalog-documentaries" > <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
                                         <div id="documentals-icon">Documentales</div>
                                     </a>
                                 </li>
@@ -96,8 +96,8 @@
                                 </a>
             
                                 <ul class="pmg-dropdown-menu dropdown-menu dropdown-menu-end">
-                                    <li><a class="pmg-dropdown-item dropdown-item" href="config_principal.html">Ajustes</a></li>                            
-                                    <li><a class="pmg-dropdown-item dropdown-item" href="index.html">Cerrar Sesión</a></li>
+                                    <li><a class="pmg-dropdown-item dropdown-item" th:href="config-main">Ajustes</a></li>                            
+                                    <li><a class="pmg-dropdown-item dropdown-item" th:href="index">Cerrar Sesión</a></li>
                                 </ul>
                                 
                             </li>
@@ -210,25 +210,25 @@
                 <!-- FOOTER COPYRIGHT COLUMN -->
                 <div class="col-md-2 col-lg-2  ms-md-auto align-self-end p-1 mx-auto"> 
                     <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
-                    <center><a class="footer-enlace" href="eula.html#copyright">Copyright © 2023</a></center>
+                    <center><a class="footer-enlace" th:href="eula">Copyright © 2023</a></center>
                 </div>
 
                 <!-- FOOTER LINKS COLUMN (FAR RIGHT) -->
                 <div class="col-md-2 col-lg-2  ms-md-auto align-self-end p-1 mx-auto"> 
                     <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
-                    <center><a class="footer-enlace" href="eula.html#cookies">Cookies y seguimiento</a></center>
+                    <center><a class="footer-enlace" th:href="eula">Cookies y seguimiento</a></center>
                 </div>
 
                 <!-- FOOTER LINKS COLUMN (FAR RIGHT) -->
                 <div class="col-md-2 col-lg-2  ms-md-auto align-self-end p-1 mx-auto"> 
                     <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
-                    <center><a class="footer-enlace" href="eula.html#politica">Politica de datos</a></center>
+                    <center><a class="footer-enlace" th:href="eula">Politica de datos</a></center>
                 </div>
 
                 <!-- FOOTER LINKS COLUMN (FAR RIGHT) -->
                 <div class="col-md-3 col-lg-3  ms-md-auto align-self-end p-1 mx-auto"> 
                     <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
-                    <center><a class="footer-enlace" href="eula.html#terminos">Terminos y condiciones</a></center>
+                    <center><a class="footer-enlace" th:href="eula">Terminos y condiciones</a></center>
                 </div>
 
             </div>
