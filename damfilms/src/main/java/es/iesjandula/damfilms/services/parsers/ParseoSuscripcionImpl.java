@@ -5,9 +5,7 @@ import java.util.Scanner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import es.iesjandula.damfilms.models.Genero;
 import es.iesjandula.damfilms.models.Suscripcion;
-import es.iesjandula.damfilms.repositories.IGeneroRepository;
 import es.iesjandula.damfilms.repositories.ISuscripcionRepository;
 import es.iesjandula.damfilms.utils.DamfilmsServerError;
 

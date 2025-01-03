@@ -59,41 +59,41 @@ public class DamfilmsApplication implements CommandLineRunner{
     @Transactional(readOnly = false)
     public void run(String... args) throws DamfilmsServerError, FileNotFoundException {
     	
-        File fileGeneros = new File("src"+File.separator+"main"+File.separator+"resources"+File.separator+"static"+File.separator+"csv"+File.separator+"generos.csv");
-        Scanner scannerGeneros = new Scanner(fileGeneros);
-        iParseoGenero.parseaFicheros(scannerGeneros);
-        
-        File fileTipos = new File("src"+File.separator+"main"+File.separator+"resources"+File.separator+"static"+File.separator+"csv"+File.separator+"tipos.csv");
-        Scanner scannerTipo = new Scanner(fileTipos);
-        iParseoTipo.parseaFicheros(scannerTipo);
-        
-        File fileSeries = new File("src"+File.separator+"main"+File.separator+"resources"+File.separator+"static"+File.separator+"csv"+File.separator+"series.csv");
-        Scanner scannerSeries = new Scanner(fileSeries);
-        iParseoSerie.parseaFicheros(scannerSeries);
-        
-        File fileTemporadas = new File("src"+File.separator+"main"+File.separator+"resources"+File.separator+"static"+File.separator+"csv"+File.separator+"temporadas.csv");
-        Scanner scannerTemporadas = new Scanner(fileTemporadas);
-        iParseoTemporada.parseaFicheros(scannerTemporadas);
-
-        File filePeliculas = new File("src"+File.separator+"main"+File.separator+"resources"+File.separator+"static"+File.separator+"csv"+File.separator+"peliculas.csv");
-        Scanner scannerPeliculas = new Scanner(filePeliculas);
-        iParseoPelicula.parseaFicheros(scannerPeliculas);
-
-        File fileDocumentales = new File("src"+File.separator+"main"+File.separator+"resources"+File.separator+"static"+File.separator+"csv"+File.separator+"documentales.csv");
-        Scanner scannerDocumentales = new Scanner(fileDocumentales);
-        iParseoDocumental.parseaFicheros(scannerDocumentales);
-        
-        File fileGeneroPeliculas = new File("src"+File.separator+"main"+File.separator+"resources"+File.separator+"static"+File.separator+"csv"+File.separator+"generoPeliculas.csv");
-        Scanner scannerGeneroPeliculas = new Scanner(fileGeneroPeliculas);
-        iParseoGeneroPelicula.parseaFicheros(scannerGeneroPeliculas);
-        
-        File fileGeneroSeries = new File("src"+File.separator+"main"+File.separator+"resources"+File.separator+"static"+File.separator+"csv"+File.separator+"generoSeries.csv");
-        Scanner scannerGeneroSeries = new Scanner(fileGeneroSeries);
-        iParseoGeneroSerie.parseaFicheros(scannerGeneroSeries);
-        
-        File fileSuscripciones = new File("src"+File.separator+"main"+File.separator+"resources"+File.separator+"static"+File.separator+"csv"+File.separator+"suscripciones.csv");
-        Scanner scannerSuscripciones = new Scanner(fileSuscripciones);
-        iParseoSuscripcion.parseaFicheros(scannerSuscripciones);
+//        File fileGeneros = new File("src"+File.separator+"main"+File.separator+"resources"+File.separator+"static"+File.separator+"csv"+File.separator+"generos.csv");
+//        Scanner scannerGeneros = new Scanner(fileGeneros);
+//        iParseoGenero.parseaFicheros(scannerGeneros);
+//        
+//        File fileTipos = new File("src"+File.separator+"main"+File.separator+"resources"+File.separator+"static"+File.separator+"csv"+File.separator+"tipos.csv");
+//        Scanner scannerTipo = new Scanner(fileTipos);
+//        iParseoTipo.parseaFicheros(scannerTipo);
+//        
+//        File fileSeries = new File("src"+File.separator+"main"+File.separator+"resources"+File.separator+"static"+File.separator+"csv"+File.separator+"series.csv");
+//        Scanner scannerSeries = new Scanner(fileSeries);
+//        iParseoSerie.parseaFicheros(scannerSeries);
+//        
+//        File fileTemporadas = new File("src"+File.separator+"main"+File.separator+"resources"+File.separator+"static"+File.separator+"csv"+File.separator+"temporadas.csv");
+//        Scanner scannerTemporadas = new Scanner(fileTemporadas);
+//        iParseoTemporada.parseaFicheros(scannerTemporadas);
+//
+//        File filePeliculas = new File("src"+File.separator+"main"+File.separator+"resources"+File.separator+"static"+File.separator+"csv"+File.separator+"peliculas.csv");
+//        Scanner scannerPeliculas = new Scanner(filePeliculas);
+//        iParseoPelicula.parseaFicheros(scannerPeliculas);
+//
+//        File fileDocumentales = new File("src"+File.separator+"main"+File.separator+"resources"+File.separator+"static"+File.separator+"csv"+File.separator+"documentales.csv");
+//        Scanner scannerDocumentales = new Scanner(fileDocumentales);
+//        iParseoDocumental.parseaFicheros(scannerDocumentales);
+//        
+//        File fileGeneroPeliculas = new File("src"+File.separator+"main"+File.separator+"resources"+File.separator+"static"+File.separator+"csv"+File.separator+"generoPeliculas.csv");
+//        Scanner scannerGeneroPeliculas = new Scanner(fileGeneroPeliculas);
+//        iParseoGeneroPelicula.parseaFicheros(scannerGeneroPeliculas);
+//        
+//        File fileGeneroSeries = new File("src"+File.separator+"main"+File.separator+"resources"+File.separator+"static"+File.separator+"csv"+File.separator+"generoSeries.csv");
+//        Scanner scannerGeneroSeries = new Scanner(fileGeneroSeries);
+//        iParseoGeneroSerie.parseaFicheros(scannerGeneroSeries);
+//        
+//        File fileSuscripciones = new File("src"+File.separator+"main"+File.separator+"resources"+File.separator+"static"+File.separator+"csv"+File.separator+"suscripciones.csv");
+//        Scanner scannerSuscripciones = new Scanner(fileSuscripciones);
+//        iParseoSuscripcion.parseaFicheros(scannerSuscripciones);
 
     }
 

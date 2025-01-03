@@ -1,0 +1,79 @@
+<div th:fragments="navbar"> 
+	<!-- Configura la navbar en manera que si el usuario no está registrado con ninguno de las autoridades especificadas no verá la barra de naveación.-->
+	<!-- Solo verán la barra usuarios GUEST, BASIC, STANDARD & PREMIUM-->
+	<nav class="navbar navbar-expand-lg" th:if="${#authorization.expression('hasAuthority(''GUEST_USER'') or hasAuthority(''BASIC_USER'') or hasAuthority(''STANDARD_USER'') or hasAuthority(''PREMIUM_USER'')')}">
+	
+	      <!-- container fluido que aloja la ROW porque las Row deben de estar en un contairer.-->
+	      <div class="container-fluid">
+	
+	          <!-- row que contiene las 12 columnas en las que se subdivide la navbar-->
+	          <div class="row" style="width:100%;">
+	
+	              <!-- 8 Columnas para enlaces de navegacion de la navbar-->
+	              <div class="col-11 container-left">
+	                   <!-- BOTON TRAS EL CUAL SE ESCONDE LOS MENUS-->
+	                  <button class="navbar-toggler" id="navbar" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+	                      <span class="navbar-toggler-icon navbar-dark"></span>
+	                  </button>
+	
+	                  <!-- SECCION QUE SE COLAPSA LLAMDA navbarTogglerDemo01 -->
+	                  <div class="collapse navbar-collapse" id="navbarTogglerDemo01" style="justify-content: start;">
+	
+	                      <a class="navbar-brand" href="#"><img src="img/logo.png"></a>
+	
+	                      <!-- lista de objetos que se colapsan.-->
+	                      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+	                          <li class="nav-item-left">
+	                              <a class="nav-link active" aria-current="page" th:href="home">
+	                                  <div th:id=" ${homeActive} ? 'home-icon-active' : 'home-icon' ">Home</div>
+	                              </a>
+	                          </li>
+	                          <li class="nav-item-left" th:if="${#authorization.expression('hasAuthority(''STANDARD_USER'') or hasAuthority(''PREMIUM_USER'')')}">
+	                              <a class="nav-link active" th:href="catalog-series"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+	                                  <div th:id=" ${seriesActive} ? 'series-icon-active' : 'series-icon' ">Series</div>
+	                              </a>
+	                          </li>
+	                          <li class="nav-item-left" th:if="${#authorization.expression('hasAuthority(''PREMIUM_USER'')')}">
+	                              <a class="nav-link active" th:href="catalog-movies"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+	                                  <div th:id=" ${filmsActive} ? 'films-icon-active' : 'films-icon' ">Películas</div>
+	                              </a>
+	                          </li>
+	                          <li class="nav-item-left" th:if="${#authorization.expression('hasAuthority(''BASIC_USER'') or hasAuthority(''STANDARD_USER'') or hasAuthority(''PREMIUM_USER'')')}">
+	                              <a class="nav-link active" th:href="catalog-documentaries" > <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
+	                                  <div th:id=" ${documentariesActive} ? 'documentals-icon-active' : 'documentals-icon' ">Documentales</div>
+	                              </a>
+	                          </li>
+	                      </ul>
+	                      <!-- modulo de buscar-->
+	                      <form class="d-flex">
+	                          <input class="input-search me-2" type="search" placeholder="Buscar" aria-label="Search">
+	                          <button class="button-search" type="submit"><img src="img/icons/lupa-64.png"></button>
+	                      </form>
+	
+	                  </div> <!-- cierra el colapso-->
+	
+	              </div><!-- cierra col1 (links de navegacion)-->
+	              
+	              <div class="col-1 container-right" >
+	                  <ul>
+	                      <li class="nav-item-right dropdown">
+	      
+	                          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+	                              <img src="img/icons/user-64.png" alt="Pefil">
+	                          </a>
+	      
+	                          <ul class="pmg-dropdown-menu dropdown-menu dropdown-menu-end">
+	                              <li><a class="pmg-dropdown-item dropdown-item" th:href="config-main">Ajustes</a></li>                            
+	                              <li><a class="pmg-dropdown-item dropdown-item" th:href="logout">Cerrar Sesión</a></li>
+	                          </ul>
+	                          
+	                      </li>
+	                  </ul>            
+	
+	              </div> <!-- cierra col2 (buscar + perfil)-->
+	
+	          </div> <!-- cierra el row-->
+	              
+	      </div> <!-- Cierra contenedor del Row-->         
+	</nav> 
+</div>

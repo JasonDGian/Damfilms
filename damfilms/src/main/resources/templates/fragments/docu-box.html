@@ -1,0 +1,15 @@
+<div th:fragments="docu-box"> 
+	<div id="newestFilmCard${i}" class="boxes">
+		<div class="box-content">
+			<div class="box-content-son" onclick="showPopup(${i})">
+			    <h5 class="titulopelicula">${documentals[i].title}</h5>
+			    <p class="duracion">
+			    ${documentals[i].duration}
+			    </p>
+			    <p class="fechasalida">
+			    ${documentals[i].release}
+			    </p> 
+			</div> 
+		</div>
+	</div>
+</div>

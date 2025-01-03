@@ -11,7 +11,13 @@ import lombok.NoArgsConstructor;
 public class SuscripcionUsuarioDto 
 {
 
-	private SuscripcionUsuarioIdDto suscripcionUsuarioId;
+	private String role;
+	
+	private String email;
+	
+	private Date fechaInicio;
+
+	private Date fechaFin;
 	
 	private UsuarioDto usuario;
 	

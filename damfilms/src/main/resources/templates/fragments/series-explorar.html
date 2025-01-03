@@ -1,0 +1,34 @@
+<!-- Contenedor principal para la sección de series general -->
+<div th:fragments="series-explorar" class="wrapper">
+	   <!-- Elemento antifloat para evitar problemas de diseño con floats -->
+	   <div class="antifloater-djg"></div>
+	   <!-- Título de la sección -->
+	   <h4 class="tituloseccion-djg" style="color: white;">Explora!</h4>
+	   <!-- Contenedor que iterará sobre la lista de series -->
+	   <div id="popular-row" th:each="serie : ${listaSeries}">
+	      <!-- Cada serie se representa dentro de una caja con una imagen de fondo -->
+	      <div class="boxes" 
+	         th:style="'background-image: url(/img/170x240/series/' + ${serie.poster} + '.png)'">
+	         <!-- Contenido interno de la caja -->
+	         <div class="box-content">
+	            <!-- Subcontenedor con la información específica de la serie -->
+	            <div class="box-content-son">
+	               <!-- Título de la serie -->
+	               <h5 class="titulopelicula">
+	                  <span th:text="${serie.titulo}">Titulo pelicula</span>
+	               </h5>
+	               <!-- Duración de la serie -->
+	               <p class="duracion">
+	                  <span th:text="${serie.duracion}">Duracion pelicula</span>
+	               </p>
+	               <!-- Fecha de llegada de la serie -->
+	               <p class="fechasalida">
+	                  <span th:text="${serie.fechaLlegada}">Fecha de llegada</span>
+	               </p>
+	            </div>
+	         </div>
+	      </div>
+	   </div>
+	   <!-- Otro elemento antifloat para mantener el diseño limpio -->
+	   <div class="antifloater-djg"></div>
+	</div>

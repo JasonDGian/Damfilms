@@ -12,7 +12,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class TemporadaDto {
 	
-	private TemporadaIdDto temporadaId;
+	private int numeroTemporada;
+	
+	private Long id;
 	
 	private Serie serie;
 	

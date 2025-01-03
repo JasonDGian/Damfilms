@@ -1,5 +1,9 @@
 package es.iesjandula.damfilms.controllers;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -8,7 +12,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import es.iesjandula.damfilms.dtos.PeliculaDto;
 import es.iesjandula.damfilms.dtos.UsuarioDto;
+import es.iesjandula.damfilms.models.Serie;
+import es.iesjandula.damfilms.repositories.ISerieRepository;
 import es.iesjandula.damfilms.services.DamfilmsUserDetailsService;
 import es.iesjandula.damfilms.utils.Constants;
 import es.iesjandula.damfilms.utils.DamfilmsServerError;
@@ -62,7 +69,50 @@ public class WebViewController
 	// utilizando el algoritmo BCrypt.
 	@Autowired
 	BCryptPasswordEncoder passwordEncoder;
+	
+	@Autowired
+	ISerieRepository iseriesRepo;
+	
+	// ------------------ RUTAS TEST  --------------------
+	@GetMapping(value = "/test")
+	public String getTestPage() {
+	    log.debug("{} - Redirigiendo el cliente hacia '/test'.", Constants.DEBUG_TAG);
+	    return "test";
+	}
+	
+	/**
+	 * Metodo que rellena un modelo con una lista de peliculas.
+	 * Ese modelo lo pasa luego a la vista test.
+	 */
+	@GetMapping(value = "/test-items")
+	public String getTestItemsPage( Model model ) {
+	    log.debug("{} - Redirigiendo el cliente hacia '/test-items'.", Constants.DEBUG_TAG);
+	    
+	
+	    PeliculaDto peli1 = new PeliculaDto();
+	    peli1.setTitulo("Jungla");
+	    peli1.setPopindex(87);	   
+	    peli1.setDuracion("120");
+	    peli1.setFechaLanzamiento(new Date());
+	    peli1.setPoster("500");
+	    
+	    PeliculaDto peli2 = new PeliculaDto();
+	    peli2.setTitulo("Jungla2");
+	    peli2.setPopindex(97);	   
+	    peli2.setDuracion("124");
+	    peli2.setFechaLanzamiento(new Date());
+	    peli2.setPoster("Coco");
+	   
+	    List<PeliculaDto> listaPelis = new ArrayList<>();
+	    listaPelis.add(peli1);
+	    listaPelis.add(peli2);
+	   	   
+	   model.addAttribute("listaPelis",listaPelis);
 
+	   // esta vista recibe el modelo con la lista de mapas.
+	    return "test";
+	}
+	
 	
 	// ------------------ RUTAS ERRORES  --------------------
 
@@ -88,6 +138,14 @@ public class WebViewController
 	    return "not-found-error";
 	}
 
+	
+	@GetMapping(value = "/failed-login")
+	public String getFailedLoginErrorPage() {
+	    log.debug("{} - Redirigiendo el cliente hacia '/failed-login'.", Constants.DEBUG_TAG);
+	    return "failed-login";
+	}
+	
+	
 	// ------------------ RUTAS PLATAFORMA  --------------------
 
 	/**
@@ -129,8 +187,10 @@ public class WebViewController
 	 * @return la vista correspondiente a la página de inicio del usuario.
 	 */
 	@GetMapping(value = "/home")
-	public String getHomePage() {
+	public String getHomePage( Model model ) {
 	    log.debug("{} - Redirigiendo el cliente hacia '/home'.", Constants.DEBUG_TAG);
+	    // añade identificador al modelo para activar el icono en navbar.
+	    model.addAttribute("homeActive", "true");
 	    return "home";
 	}
 
@@ -140,8 +200,9 @@ public class WebViewController
 	 * @return la vista correspondiente al catálogo de documentales.
 	 */
 	@GetMapping(value = "/catalog-documentaries")
-	public String getDocumentariesPage() {
+	public String getDocumentariesPage( Model model ) {
 	    log.debug("{} - Redirigiendo el cliente hacia '/catalog-documentaries'.", Constants.DEBUG_TAG);
+	    model.addAttribute("documentariesActive", "true");
 	    return "catalog-documentaries";
 	}
 
@@ -151,8 +212,16 @@ public class WebViewController
 	 * @return la vista correspondiente al catálogo de series.
 	 */
 	@GetMapping(value = "/catalog-series")
-	public String getSeriesPage() {
+	public String getSeriesPage( Model model ) {
 	    log.debug("{} - Redirigiendo el cliente hacia '/catalog-series'.", Constants.DEBUG_TAG);
+	    
+	    List<Serie> series = this.iseriesRepo.findAll();
+	    //List<Serie> seriesPopulares = this.iseriesRepo.findAllSortByPopindex();
+	    
+	    model.addAttribute("seriesActive", "true");
+	    model.addAttribute("listaSeries", series);
+	    //model.addAttribute("listaSeriesPopulares", seriesPopulares);
+	   
 	    return "catalog-series";
 	}
 
@@ -162,9 +231,10 @@ public class WebViewController
 	 * @return la vista correspondiente al catálogo de películas.
 	 */
 	@GetMapping(value = "/catalog-movies")
-	public String getMoviesPage() {
+	public String getMoviesPage( Model model ) {
 	    log.debug("{} - Redirigiendo el cliente hacia '/catalog-movies'.", Constants.DEBUG_TAG);
-	    return "/catalog-movies";
+	    model.addAttribute("filmsActive", "true");
+	    return "catalog-movies";
 	}
 
 	/**
@@ -175,8 +245,23 @@ public class WebViewController
 	@GetMapping(value = "/config-main")
 	public String getMainConfigPage() {
 	    log.debug("{} - Redirigiendo el cliente hacia '/config-main'.", Constants.DEBUG_TAG);
-	    return "/config-main";
+	    return "config-main";
 	}
+	
+	@GetMapping(value = "/successful-logout")
+	public String geLogoutPage() {
+	    log.debug("{} - Redirigiendo el cliente hacia '/logout'.", Constants.DEBUG_TAG);
+	    return "successful-logout";
+	}
+	
+	// ------------------ RUTAS FRAGMENTOS  --------------------
+	
+	@GetMapping(value = "/navbar")
+	public String getNavbar() {
+	    log.debug("{} - Redirigiendo el cliente hacia '/config-main'.", Constants.DEBUG_TAG);
+	    return "/fragments/navbar";
+	}
+	
 
 	// ------------------ RUTAS AUTENTICACION  --------------------
 
@@ -238,7 +323,7 @@ public class WebViewController
 			model.addAttribute("signupError", true);
 			model.addAttribute("signupError", "El correo introducido ya está registrado.");
 			// Vuelve a la pagina de registro con el modelo cargado.
-			return "sig-nup";
+			return "sign-up";
 		}
 		
 		
@@ -259,12 +344,12 @@ public class WebViewController
 			log.debug("{} - Error encontrado", Constants.DEBUG_TAG);
 			model.addAttribute("signupError", true);
 			model.addAttribute("signupErrorMessage", e.getMessage() );
-			return "/signup";
+			return "sign-up";
 		}
 		
 		// Si todo ha salido a pedir de Milhouse entonces volvemos a Login.
 		log.debug("{} - Redirigiendo a login.", Constants.DEBUG_TAG);
-		return "/login";
+		return "login";
 	}
 
 }

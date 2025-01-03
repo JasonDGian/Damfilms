@@ -33,6 +33,7 @@
           <div class="container">
             <h1 class="Crea_una_cuenta"> Crea una cuenta </h1> 
             <p class="Empieza"> Empieza a disfrutar!</p> 
+			<p th:if="${signupError}" th:text="${registerErrorMessage}" class="error"></p>
           </div>
 
             <!--Formulario-->

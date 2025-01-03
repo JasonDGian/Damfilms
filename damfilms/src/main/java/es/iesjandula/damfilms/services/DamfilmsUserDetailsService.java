@@ -178,8 +178,8 @@ public class DamfilmsUserDetailsService implements UserDetailsService
 		
 		// Si no encuentra el usuario buscado lanza error y loguea.
 		if ( usuarioOpt.isEmpty() ){
-			String mensaje = "No se han encontrado usuarios con el correo " + email;
-			log.error(mensaje);
+			String mensaje = Constants.DEBUG_TAG + "No se han encontrado usuarios con el correo " + email;
+			log.error( mensaje );
 			throw new UsernameNotFoundException(mensaje) ;
 		}
 				

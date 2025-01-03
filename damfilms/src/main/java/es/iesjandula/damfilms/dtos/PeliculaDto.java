@@ -1,6 +1,6 @@
 package es.iesjandula.damfilms.dtos;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 import es.iesjandula.damfilms.models.Tipo;
@@ -13,8 +13,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class PeliculaDto {
 	
-	private PeliculaIdDto peliculaId;
+	private String titulo;
 	
+	private Date fechaLanzamiento;
+		
 	private String duracion;
 	
 	private String poster;

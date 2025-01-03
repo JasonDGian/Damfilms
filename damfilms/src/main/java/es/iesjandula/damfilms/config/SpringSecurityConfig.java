@@ -75,7 +75,11 @@ public class SpringSecurityConfig
 							"/eula", 
 							"/signup",
 							"/register",
-							"/not-found"
+							"/not-found",
+							"/failed-login",
+							"/test",
+							"/successful-logout",
+							"test-items"
 						)
 						.permitAll()
 
@@ -120,16 +124,17 @@ public class SpringSecurityConfig
 						// Página de autenticación de usuario.
 						.loginPage("/login")
 						// Página a la que se redirige en caso de fallo en el inicio de sesión.
-						.failureUrl("/index")
+						.failureUrl("/failed-login")
 					    // Página a la que se redirige tras un inicio de sesión exitoso.
 					    // El parámetro booleano indica si se fuerza la redirección a /home o no,
 					    // incluso si el usuario intentaba acceder a otra página antes.
-						.defaultSuccessUrl("/home", false))
+						.defaultSuccessUrl("/home", true))
 				
 				// -------------- BLOQUE DE CONFIGURACION DE FUNCION DE CIERRE DE SESION  -------------
 				.logout(customLogout -> customLogout
 						// Pagina a la que se redirigirá el usuario si cierra sesión.
-						.logoutSuccessUrl("/index.html"));
+						.logoutSuccessUrl("/successful-logout")
+						);
 
 		// Devuelve un objeto de configuración del filtro construido
 		// a partir de las instrucciones anteriores.

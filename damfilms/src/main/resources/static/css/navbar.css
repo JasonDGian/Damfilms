@@ -127,7 +127,7 @@
 
 #films-icon{
     height: 24px;
-    width: 108px;
+    width: 118px;
     background-image: url(../img/icons/claketa-64.png); /* imagen blanca de fondo */
     background-size: contain;
     background-repeat: no-repeat;
@@ -141,7 +141,7 @@
 
 #films-icon-active{
     height: 24px;
-    width: 108px;
+    width: 118px;
     background-image: url(../img/icons/claketa-64-alter.png); /* imagen naranja camara */
     background-size: contain;
     background-repeat: no-repeat;
@@ -152,7 +152,7 @@
 
 #documentals-icon{
     height: 24px;
-    width: 152px;
+    width: 172px;
     background-image: url(../img/icons/camara-64.png); /* imagen blanca de fondo */
     background-size: contain;
     background-repeat: no-repeat;
@@ -167,7 +167,7 @@
 
 #documentals-icon-active{
     height: 24px;
-    width: 152px;
+    width: 172px;
     background-image: url(../img/icons/camara-64-alter.png); /* imagen naranja camara */
     background-size: contain;
     background-repeat: no-repeat;

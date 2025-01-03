@@ -3,7 +3,6 @@ package es.iesjandula.damfilms.dtos;
 import java.sql.Date;
 import java.util.List;
 
-import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,7 +12,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class DocumentalDto {
 	
-	private DocumentalIdDto documentalId;
+	private String titulo;
+	
+	private Date fechaLanzamiento;
 	
 	private String duracion;
 	

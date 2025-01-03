@@ -35,85 +35,9 @@
     <!-- Document of the BODY -->
     <body>
         <div id="arribaX"></div>
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg ">
-
-            <!-- container fluido que aloja la ROW porque las Row deben de estar en un contairer.-->
-            <div class="container-fluid">
-    
-                <!-- row que contiene las 12 columnas en las que se subdivide la navbar-->
-                <div class="row" style="width:100%;">
-    
-                    <!-- 8 Columnas para enlaces de navegacion de la navbar-->
-                    <div class="col-11 container-left">
-                         <!-- BOTON TRAS EL CUAL SE ESCONDE LOS MENUS-->
-                        <button class="navbar-toggler" id="navbar" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon navbar-dark"></span>
-                        </button>
-    
-                        <!-- SECCION QUE SE COLAPSA LLAMDA navbarTogglerDemo01 -->
-                        <div class="collapse navbar-collapse" id="navbarTogglerDemo01" style="justify-content: start;">
-    
-                            <a class="navbar-brand" href="home.html"><img src="img/Logo.png"></a>
-    
-                            <!-- lista de objetos que se colapsan.-->
-                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                <li class="nav-item-left">
-                                    <a class="nav-link active" aria-current="page" th:href="home">
-                                        <div id="home-icon">Home</div>
-                                    </a>
-                                </li>
-                                <li class="nav-item-left">
-                                    <a class="nav-link active" th:href="catalog-series"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
-                                        <div id="series-icon">Series</div>
-                                    </a>
-                                </li>
-                                <li class="nav-item-left">
-                                    <a class="nav-link active" th:href="catalog-movies"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
-                                        <div id="films-icon">Películas</div>
-                                    </a>
-                                </li>
-                                <li class="nav-item-left">
-                                    <a class="nav-link active presente" th:href="catalog-documentaries"> <!-- INTRODUCIR LOS ENLACES A LAS PAGINAS PERTINENTES -->
-                                        <div id="documentals-icon-active">Documentales</div>
-                                    </a>
-                                </li>
-                            </ul>
-                            <!-- modulo de buscar-->
-                            <form class="d-flex">
-                                <input class="input-search me-2" type="search" placeholder="Buscar" aria-label="Search">
-                                <button class="button-search" type="submit"><img src="img/icons/lupa-64.png"></button>
-                            </form>
-    
-                        </div> <!-- cierra el colapso-->
-    
-                    </div><!-- cierra col1 (links de navegacion)-->
-                    
-                    <div class="col-1 container-right" >
-                        <ul>
-                            <li class="nav-item-right dropdown">
-            
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="img/icons/user-64.png">
-                                </a>
-            
-                                <ul class="pmg-dropdown-menu dropdown-menu dropdown-menu-end">
-                                    <li><a class="pmg-dropdown-item dropdown-item" th:href="config-main">Ajustes</a></li>                            
-                                    <li><a class="pmg-dropdown-item dropdown-item" th:href="index">Cerrar Sesión</a></li>
-                                </ul>
-                                
-                            </li>
-                        </ul>            
-    
-                    </div> <!-- cierra col2 (buscar + perfil)-->
-    
-                </div> <!-- cierra el row-->
-                    
-            </div> <!-- Cierra contenedor del Row-->         
-    
-    
-    
-        </nav> <!-- cierra navbar-->
+        <!-- Navbar incluida mediante mecanismos de thymeleaf.-->
+		<div th:replace="~{fragments/navbar}"></div>
+  		<!-- cierra navbar-->
           
 
         <!-- Main document content-->
@@ -160,7 +84,9 @@
                         <h4 class="tituloseccion-djg" style="color:white;">Lo mas popular</h4>
                         
                         <!-- Aquí se inyectan los objetos de peliculas populares-->
-                        <div id="popular-row"></div>
+                        <div id="popular-row">
+						</div>
+							
                     </div>
 
                     <div class="antifloater-djg"></div> <!-- FLOAT CLEARING DIV -->
@@ -180,45 +106,7 @@
         </main>
 
         <!-- Footer and infoboxes section -->
-        <footer class="container-fluid fixed-bottom footer-djg" >
-
-
-            <!-- FOOTER COLUMNS ROW - THIS ROW CONTAINS THE FOOTER COLUMNS -->
-            <div class="row mx-auto pt-4 pb-2" style="font-size: 9pt;">
-
-                <!-- FOOTER COOKIES COLUMN -->
-                <div class="col-md-2 col-lg-3  ms-md-auto align-self-end p-1 mx-auto"> 
-                    <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
-                    <center><a class="footer-enlace" href="#arribaX">Volver arriba</a></center>
-                </div>
-
-                <!-- FOOTER COPYRIGHT COLUMN -->
-                <div class="col-md-2 col-lg-2  ms-md-auto align-self-end p-1 mx-auto"> 
-                    <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
-                    <center><a class="footer-enlace" th:href="@{/eula} + '#copyright'">Copyright © 2023</a></center>
-                </div>
-
-                <!-- FOOTER LINKS COLUMN (FAR RIGHT) -->
-                <div class="col-md-2 col-lg-2  ms-md-auto align-self-end p-1 mx-auto"> 
-                    <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
-                    <center><a class="footer-enlace" th:href="@{/eula} + '#cookies'">Cookies y seguimiento</a></center>
-                </div>
-
-                <!-- FOOTER LINKS COLUMN (FAR RIGHT) -->
-                <div class="col-md-2 col-lg-2  ms-md-auto align-self-end p-1 mx-auto"> 
-                    <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
-                    <center><a class="footer-enlace" th:href="@{/eula} + '#politica'">Politica de datos</a></center>
-                </div>
-
-                <!-- FOOTER LINKS COLUMN (FAR RIGHT) -->
-                <div class="col-md-3 col-lg-3  ms-md-auto align-self-end p-1 mx-auto"> 
-                    <!-- INTRODUCIR TEXTO DEFINITIVO Y BORRAR LOREM IPSUM -->
-                    <center><a class="footer-enlace" th:href="@{/eula} + '#terminos'">Terminos y condiciones</a></center>
-                </div>
-
-            </div>
-
-        </footer>
+	  <div th:replace="~{fragments/footer}"></div>
 
                 <!-- Page specific Javascript link that needs to load after html render-->
                 <script src="js/djg-script-docu.js" type="module"></script>
