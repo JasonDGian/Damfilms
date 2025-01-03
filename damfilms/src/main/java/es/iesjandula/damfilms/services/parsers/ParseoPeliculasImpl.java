@@ -45,17 +45,17 @@ public class ParseoPeliculasImpl implements IParseoPelicula {
 			PeliculaId peliculaId = new PeliculaId();
 			
 			peliculaId.setTitulo(lineaDelFicheroTroceada[1]);
+			pelicula.setDuracion(lineaDelFicheroTroceada[2]);
 			peliculaId.setFechaLanzamiento(DatesUtil.crearFechaDesdeString(lineaDelFicheroTroceada[3]));
 			pelicula.setPeliculaId(peliculaId);
-			pelicula.setDuracion(lineaDelFicheroTroceada[2]);
 			pelicula.setFechaLlegada(date);
-			pelicula.setPoster(lineaDelFicheroTroceada[5]);
-			Optional<Tipo>optionalTipo = this.tipoRepository.findById(lineaDelFicheroTroceada[6]);
+			pelicula.setPoster(lineaDelFicheroTroceada[4]);
+			Optional<Tipo>optionalTipo = this.tipoRepository.findById(lineaDelFicheroTroceada[5]);
 			if(!optionalTipo.isEmpty()){
 			pelicula.setTipo(optionalTipo.get());
 			}
-			pelicula.setPopindex(Integer.valueOf(lineaDelFicheroTroceada[7]));
-			pelicula.setSinopsis(lineaDelFicheroTroceada[8]);
+			pelicula.setPopindex(Integer.valueOf(lineaDelFicheroTroceada[6]));
+			pelicula.setSinopsis(lineaDelFicheroTroceada[7]);
 			peliculaRepository.saveAndFlush(pelicula);
 			
 		}

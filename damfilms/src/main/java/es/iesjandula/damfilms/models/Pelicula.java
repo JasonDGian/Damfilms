@@ -7,6 +7,7 @@ import es.iesjandula.damfilms.models.ids.PeliculaId;
 import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
@@ -34,7 +35,7 @@ public class Pelicula {
 	@Column(nullable = false)
 	private Date fechaLlegada;
 	
-	@Column
+	@Column(columnDefinition = "TEXT")
 	private String sinopsis;
 	
 	@ManyToOne

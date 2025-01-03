@@ -1,22 +1,22 @@
-clave,title,duration,release,genre1,poster,type,popindex
-s1,The Big Bang Theory,22 minutos por episodio,2007,Comedia,bang,Live action,5
-s2,The Boys,55 minutos por episodio,2019,Acción,boys,Live action,10
-s3,Breaking Bad,47 minutos por episodio,2008,Suspense,breaking,Live action,15
-s4,Brooklyn Nine-Nine,22 minutos por episodio,2013,Comedia,brooklyn,Live action,3
-s5,The IT crowd,25 minutos por episodio,2006,Comedia,crowd,Live action,12
-s6,CSI New York,43 minutos por episodio,2004,Suspense,csi,Live action,7
-s7,Death Note,24 minutos por episodio,2006,Suspense,death,Animación,18
-s8,F.r.i.e.n.d.s.,22 minutos por episodio,1994,Comedia,friends,Live action,6
-s9,Futurama,22 minutos por episodio,1999,Comedia,futurama,Animación,11
-s10,Dr. House,44 minutos por episodio,2004,Drama,house,Live action,9
-s11,Miraculous Ladybug,22 minutos por episodio,2015,Acción,ladybug,Animación,4
-s12,The Mandalorian,40 minutos por episodio,2019,Acción,mandalorian,Live action,14
-s13,The Mentalist,43 minutos por episodio,2008,Suspense,mentalist,Live action,2
-s14,The Office,22 minutos por episodio,2005,Comedia,office,Live action,17
-s15,Perception,42 minutos por episodio,2012,Suspense,perception,Live action,8
-s16,Seinfeld,22 minutos por episodio,1989,Comedia,seinfield,Live action,19
-s17,Sherlock,88 minutos por episodio,2010,Suspense,sherlock,Live action,13
-s18,South Park,22 minutos por episodio,1997,Comedia,southpark,Animación,21
-s19,Game of Thrones,57 minutos por episodio,2011,Drama,thrones,Live action,16
-s20,Vikings,44 minutos por episodio,2013,Acción,vikings,Live action,20
-s21,Walker Texas Rangers,32 minutos por episodio,1993,Acción,texas,Live action,1
+clave,title,duration,poster,type,popindex
+s1,The Big Bang Theory,22 minutos por episodio,bang,Live action,5
+s2,The Boys,55 minutos por episodio,boys,Live action,10
+s3,Breaking Bad,47 minutos por episodio,breaking,Live action,15
+s4,Brooklyn Nine-Nine,22 minutos por episodio,brooklyn,Live action,3
+s5,The IT crowd,25 minutos por episodio,crowd,Live action,12
+s6,CSI New York,43 minutos por episodio,csi,Live action,7
+s7,Death Note,24 minutos por episodio,death,Animación,18
+s8,F.r.i.e.n.d.s.,22 minutos por episodio,friends,Live action,6
+s9,Futurama,22 minutos por episodio,futurama,Animación,11
+s10,Dr. House,44 minutos por episodio,house,Live action,9
+s11,Miraculous Ladybug,22 minutos por episodio,ladybug,Animación,4
+s12,The Mandalorian,40 minutos por episodio,mandalorian,Live action,14
+s13,The Mentalist,43 minutos por episodio,mentalist,Live action,2
+s14,The Office,22 minutos por episodio,office,Live action,17
+s15,Perception,42 minutos por episodio,perception,Live action,8
+s16,Seinfeld,22 minutos por episodio,seinfield,Live action,19
+s17,Sherlock,88 minutos por episodio,sherlock,Live action,13
+s18,South Park,22 minutos por episodio,southpark,Animación,21
+s19,Game of Thrones,57 minutos por episodio,thrones,Live action,16
+s20,Vikings,44 minutos por episodio,vikings,Live action,20
+s21,Walker Texas Rangers,32 minutos por episodio,texas,Live action,1
