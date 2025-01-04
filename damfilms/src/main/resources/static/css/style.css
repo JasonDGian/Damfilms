@@ -50,7 +50,7 @@ a a:link {
 }
 
 
-/*------ ESTILO POSTERS AUTOMATICOS ------*/
+/------ ESTILO POSTERS AUTOMATICOS ------/
 
 /* CONTENEDOR DE SECCIONES POSTER*/
 .movie-box-container .movie-box-container2{ 
@@ -93,7 +93,7 @@ a a:link {
     width: 170px;
 }
 
-/*efecto on hover de poster*/
+/efecto on hover de poster/
 .box-content-son:hover{
     z-index: 1000;
     transition-duration: 0.3s;
@@ -102,7 +102,7 @@ a a:link {
     background-image: linear-gradient( rgba(0, 0, 0, 0.901) 35%, rgba(0, 0, 0, 0.205) 100%);
 }
 
-/*TEXTO POSTER*/
+/TEXTO POSTER/
 .titulopelicula{
     padding:10px;
 }
@@ -114,9 +114,9 @@ a a:link {
     font-size: 9pt;
 }
 
-/*------ FIN ESTILO POSTERS AUTOMATICOS ------*/
+/------ FIN ESTILO POSTERS AUTOMATICOS ------/
 
-/*CAJA QUE CONTIENE LOS BOTONES DE FILTRADO*/
+/CAJA QUE CONTIENE LOS BOTONES DE FILTRADO/
 #filterBox{
     padding-left: 10px;
     margin-top: 30px;
@@ -131,7 +131,7 @@ a a:link {
     color: black;
 }
 
-/*ESTILO DE OBJETOS DE MENU FILTRO*/
+/ESTILO DE OBJETOS DE MENU FILTRO/
 #DropDownItem{
     font-weight: bold;
     color: black;
@@ -437,7 +437,7 @@ a a:link {
 /* -------------------- FINAL SECCION DE HOME -------------------- */
 /* -------------------------------- INICIO SECCION INDEX -------------------------------- */
 .MainSign-in {
-    color:aliceblue /*Change the color of the text*/
+    color:aliceblue /Change the color of the text/
 }
 
 html {
@@ -460,76 +460,73 @@ html {
 }
 
 .carrusel {
-    position: relative;
-    display: inline-block;
-    z-index: 10;
-
+    height: 60vh; /* Ocupa la mitad de la altura de la pantalla */
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    overflow: hidden; /* Evita que las imágenes sobresalgan */
 }
 
-#div-logo {
-    position: relative;
-    padding-top: 50px;
-    padding-left: 133px;
-    z-index: 11;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    height: 50%;
+.carrusel img {
+    object-fit: cover; /* Ajusta las imágenes al contenedor */
+    height: 100%; /* Asegura que las imágenes llenen el contenedor */
+    width: auto; /* Mantiene las proporciones de las imágenes */
+}
 
+/* Ajustar el logo para que esté encima del carrusel */
+#div-logo {
+    position: absolute; /* Cambiar a absolute */
+    top: 20%;  /* Asegúrate de colocar el logo donde quieras, este es un ejemplo */
+    left: 50%;  /* Centra el logo horizontalmente */
+    transform: translateX(-50%);  /* Centrado perfecto */
+    z-index: 10;  /* Asegúrate de que el logo esté encima */
+}
+
+/* Ajustar los botones de inicio y registro */
+#botonInicio1,
+#botonInicio2 {
+    position: absolute; /* Cambiar a absolute */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5; /* Asegúrate de que los botones estén encima del carrusel */
 }
 
 #botonInicio1 {
-    width: 50%;
-    margin-top: 180px;
-    float: left;
-    
-}
-
-#botonInicio1 a {
-    font-weight: 700;
-    font-size: 30px;
-    text-decoration: none;
-    margin-left: 200px;
-    margin-top: 375px;
-    color: white;
-    background-color: rgb(255, 166, 0);
-    padding-top: 25px;
-    padding-bottom: 25px;
-    padding-left: 90px;
-    padding-right: 90px;
-    border-radius: 50px;
-}
-
-#botonInicio1 a:hover {
-    color: rgb(255, 166, 0);
-    background-color: white;
+    top: 70%;  /* Ajusta esta propiedad según la altura que quieras para el primer botón */
+    margin-bottom: 20px; /* Añadir espacio abajo al primer botón */
 }
 
 #botonInicio2 {
-   width: 50%;
-   margin-top: 180px;
-   float: left;
+    top: calc(70% + 70px); /* Ajusta la posición del segundo botón para darle espacio */
 }
 
+#botonInicio1 a,
 #botonInicio2 a {
+    display: inline-block;
     font-weight: 700;
-    margin-left: 200px;
     font-size: 30px;
     text-decoration: none;
     color: white;
     background-color: rgb(255, 166, 0);
-    padding-top: 25px;
-    padding-bottom: 25px;
-    padding-left: 100px;
-    padding-right: 100px;
+    padding: 25px 90px;
     border-radius: 50px;
-
 }
 
+#botonInicio1 a:hover,
 #botonInicio2 a:hover {
     color: rgb(255, 166, 0);
     background-color: white;
 }
+
+#infoInicio {
+    position: relative;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.5); /* Opcional, para que se vea con fondo transparente */
+    color: white; /* Para que el texto se vea bien sobre el fondo */
+    padding: 20px;
+    margin-top: 20px; /* Ajusta el espacio según lo necesites */
+}
+
 
 #suscripcion_basica {
     background-color: rgba(32,32,32,1);
