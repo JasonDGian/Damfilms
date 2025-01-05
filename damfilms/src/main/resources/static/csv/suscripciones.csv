@@ -1,0 +1,5 @@
+role,nombre,precio_mensual
+GUEST_USER,Invitado,0 
+BASIC_USER,Basica,8.99 
+STANDARD_USER,Estandar,12.50 
+PREMIUM_USER,Premium,17.99

@@ -14,6 +14,7 @@ import es.iesjandula.damfilms.services.parsers.IParseoDocumental;
 import es.iesjandula.damfilms.services.parsers.IParseoGenero;
 import es.iesjandula.damfilms.services.parsers.IParseoPelicula;
 import es.iesjandula.damfilms.services.parsers.IParseoSerie;
+import es.iesjandula.damfilms.services.parsers.IParseoSuscripcion;
 import es.iesjandula.damfilms.services.parsers.IParseoTipo;
 import es.iesjandula.damfilms.services.parsers.iParseoGeneroPelicula;
 import es.iesjandula.damfilms.services.parsers.iParseoGeneroSerie;
@@ -47,6 +48,9 @@ public class DamfilmsApplication implements CommandLineRunner{
     @Autowired
     private iParseoTemporada iParseoTemporada;
 
+    @Autowired
+    private IParseoSuscripcion iParseoSuscripcion;
+    
 	public static void main(String[] args) throws DamfilmsServerError
 	{
 		SpringApplication.run(DamfilmsApplication.class, args);
@@ -86,6 +90,10 @@ public class DamfilmsApplication implements CommandLineRunner{
         File fileGeneroSeries = new File("src"+File.separator+"main"+File.separator+"resources"+File.separator+"static"+File.separator+"csv"+File.separator+"generoSeries.csv");
         Scanner scannerGeneroSeries = new Scanner(fileGeneroSeries);
         iParseoGeneroSerie.parseaFicheros(scannerGeneroSeries);
+        
+        File fileSuscripciones = new File("src"+File.separator+"main"+File.separator+"resources"+File.separator+"static"+File.separator+"csv"+File.separator+"suscripciones.csv");
+        Scanner scannerSuscripciones = new Scanner(fileSuscripciones);
+        iParseoSuscripcion.parseaFicheros(scannerSuscripciones);
 
     }
 
