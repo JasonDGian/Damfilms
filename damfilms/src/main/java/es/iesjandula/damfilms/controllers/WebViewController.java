@@ -315,18 +315,16 @@ public class WebViewController
 	public String userSignup( @RequestBody UsuarioDto usuarioDto , Model model )
 	{
 				
-		log.debug("{} - Comenzando proceso de registro usuario.", Constants.DEBUG_TAG);
+		log.debug("{} - Atendiendo a peticion de registro usuario.", Constants.DEBUG_TAG);
 		// Comprueba si el correo está disponible.
 		if ( this.userDetailServer.existsByUsername(usuarioDto.getEmail()) ){
 			// Cargamos el modelo con información acerca del error encontrado.
 			log.debug("{} - El usuario ya existe.", Constants.DEBUG_TAG);
 			model.addAttribute("signupError", true);
-			model.addAttribute("signupError", "El correo introducido ya está registrado.");
+			model.addAttribute("signupErrorMessage", "El correo introducido ya está registrado.");
 			// Vuelve a la pagina de registro con el modelo cargado.
 			return "sign-up";
 		}
-		
-		
 		
 		// Si el correo no está ya registrado...
 		

@@ -33,13 +33,12 @@
           <div class="container">
             <h1 class="Crea_una_cuenta"> Crea una cuenta </h1> 
             <p class="Empieza"> Empieza a disfrutar!</p> 
-			<p th:if="${signupError}" th:text="${registerErrorMessage}" class="error"></p>
+			<p th:if="${signupError}" th:text="${signupErrorMessage}" class="error"></p>
           </div>
 
             <!--Formulario-->
             <div id="form-container">
-            
-      
+           
               <label for="nombre" class="label_sign_in">Nombre</label>
               <input type="text" class="input_sign_in" id="nombre" name="nombre">
               <div class="error-message" id="nombre-error"></div>
@@ -57,6 +56,7 @@
                 <div class="crear_cuenta">
                   <button onclick="validarFormulario()" class="boton_crear_cuenta">Regístrate</button>
                 </div>
+				
             </div>
             <!--Final del formulario-->
 
