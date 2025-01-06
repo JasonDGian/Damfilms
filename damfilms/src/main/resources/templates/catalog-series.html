@@ -67,11 +67,11 @@
                 <!-- CAJA DE SERIES-->
                 <div class="container-fluid mx" id="big-box">
                     <!-- CAJA CONTENEDORA ULTIMAS LLEGADAS -->
-                    <div th:replace="fragments/series-ultimas-llegadas"></div>
+                    <div th:replace="~{fragments/series-ultimas-llegadas}"></div>
                     <!-- CAJA CONTENEDORA LO MAS POPULAR -->
-                    <div th:replace="fragments/series-popular"></div>
+                    <div th:replace="~{fragments/series-popular}"></div>
                     <!-- CAJA CONTENEDORA GENERAL -->
-					<div th:replace="fragments/series-explorar"></div>
+					<div th:replace="~{fragments/series-explorar}"></div>
                 </div>
                 <!-- Footer Hotfix-djg - If you change the footer class 'fixed-bottom' you may need to delete this one too -->
                 <div style="width: 100%; height: 1px; margin-top: 75px; float: left;"></div>
@@ -80,6 +80,6 @@
         <!-- Footer and infoboxes section -->
         <div th:replace="~{fragments/footer}"></div>
         <!-- Page specific Javascript link that needs to load after html render-->
-        <script src="js/djg-script-series.js" type="module"></script>
+        <!-- <script src="js/djg-script-series.js" type="module"></script>-->
     </body>
 </html>
