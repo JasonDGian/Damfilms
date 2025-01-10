@@ -32,15 +32,16 @@
 
           <div class="container">
             <h1 class="Crea_una_cuenta"> Crea una cuenta </h1> 
-            <p class="Empieza"> Empieza a disfrutar!</p> 
+            <p class="Empieza"> ¡Empieza a disfrutar!</p> 
 			<p th:if="${signupError}" th:text="${signupErrorMessage}" class="error"></p>
           </div>
 
             <!--Formulario-->
+            <!--El combobox esta implementado con opciones fijas, falta que se rellene por peticion-->
             <div id="form-container">
            
               <label for="nombre" class="label_sign_in">Nombre</label>
-              <input type="text" class="input_sign_in" id="nombre" name="nombre">
+              <input type="text" class="input_sign_in" id="nombre" name="nombreUsuario">
               <div class="error-message" id="nombre-error"></div>
 
               <label for="email" class="label_sign_in">Email</label>
@@ -53,6 +54,21 @@
                 <button id="show-password" onclick="togglePasswordVisibility()" class="boton_ojo"><img src="img/sign-in/eye.svg"></button>
               </div>
               <div class="error-message" id="password-error"></div>
+              
+              <label for="password" class="label_sign_in">Confirmar contraseña</label>
+              <div style="display: flex;">
+                <input type="password" class="input_sign_in" id="password2" name="password2">
+                <button id="show-password2" onclick="toggleConfirmPasswordVisibility()" class="boton_ojo"><img src="img/sign-in/eye.svg"></button>
+              </div>
+              <div class="error-message" id="password2-error"></div>
+              
+              <label for="tipo-suscripcion" class="label_sign_in">Tipo de suscripción</label>
+              <select id="tipo-suscripcion" name="nombreSuscripcion" class="input_sign_in">
+				<option value="Invitado">Invitado</option>
+                <option value="Basica">Básica</option>
+                <option value="Estandar">Estándar</option>
+                <option value="Premium">Premium</option>
+              </select>
                 <div class="crear_cuenta">
                   <button onclick="validarFormulario()" class="boton_crear_cuenta">Regístrate</button>
                 </div>
@@ -60,13 +76,6 @@
             </div>
             <!--Final del formulario-->
 
-            <!--Boton de continuar con google-->
-            <div class="continuar_con_google">
-            <a class="enlace_home_google" th:href="home">
-              <button type="button" class="continuar_con_google_boton"><p>Continuar con google <img src="img/sign-in/icon_google.svg"> </p></button>
-            </a>
-            </div>
-            
 
             <!--Enlace a inicio de sesion-->
             <p class="enlace_inicio_sesion">¿Ya tienes una cuenta?   <a class="enlace_log_in" th:href="login">Inicia sesión</a></p>

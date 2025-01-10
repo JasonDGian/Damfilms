@@ -16,6 +16,7 @@ import es.iesjandula.damfilms.dtos.PeliculaDto;
 import es.iesjandula.damfilms.dtos.UsuarioDto;
 import es.iesjandula.damfilms.models.Serie;
 import es.iesjandula.damfilms.repositories.ISerieRepository;
+import es.iesjandula.damfilms.repositories.ISuscripcionRepository;
 import es.iesjandula.damfilms.services.DamfilmsUserDetailsService;
 import es.iesjandula.damfilms.utils.Constants;
 import es.iesjandula.damfilms.utils.DamfilmsServerError;
@@ -72,6 +73,9 @@ public class WebViewController
 	
 	@Autowired
 	ISerieRepository iseriesRepo;
+	
+	@Autowired
+	ISuscripcionRepository iSuscripcionRepository;
 	
 	// ------------------ RUTAS TEST  --------------------
 	@GetMapping(value = "/test")
@@ -331,14 +335,15 @@ public class WebViewController
 		// Creamos una cadena con la contraseña cifrada para almacenamiento en BBDD.
 		log.debug("{} - Cifrando clave.", Constants.DEBUG_TAG);
 		String encodedPassword = this.passwordEncoder.encode(usuarioDto.getPassword());
-		
+				
 		try{
 			// Invoca el metodo de almacenamiento en BBDD de userDetailService.
 			log.debug("{} - Almacenando usuario.", Constants.DEBUG_TAG);
 			this.userDetailServer.saveUser( usuarioDto, encodedPassword );
 			
 		}
-		catch( DamfilmsServerError e ){
+		catch( DamfilmsServerError e )
+		{
 			log.debug("{} - Error encontrado", Constants.DEBUG_TAG);
 			model.addAttribute("signupError", true);
 			model.addAttribute("signupErrorMessage", e.getMessage() );
