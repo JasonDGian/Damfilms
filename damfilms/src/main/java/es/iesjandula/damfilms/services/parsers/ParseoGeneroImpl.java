@@ -9,31 +9,40 @@ import es.iesjandula.damfilms.models.Genero;
 import es.iesjandula.damfilms.repositories.IGeneroRepository;
 import es.iesjandula.damfilms.utils.DamfilmsServerError;
 
+/**
+ * Servicio encargado de parsear los ficheros de datos y almacenar la información
+ * de géneros en la base de datos.
+ */
 @Service
-public class ParseoGeneroImpl implements IParseoGenero
-{
+public class ParseoGeneroImpl implements IParseoGenero {
 
-	@Autowired
-	IGeneroRepository generoRepository;
-		
-	@Override
-	public void parseaFicheros(Scanner scanner) throws DamfilmsServerError 
-	{
+    @Autowired
+    IGeneroRepository generoRepository;
 
-		scanner.nextLine();
+    /**
+     * Método que procesa las líneas de un fichero de entrada, crea objetos
+     * Genero a partir de ellas y los guarda en la base de datos.
+     * 
+     * @param scanner Objeto Scanner que lee las líneas del fichero.
+     * @throws DamfilmsServerError Si ocurre un error al procesar el fichero o
+     *                              almacenar los géneros.
+     */
+    @Override
+    public void parseaFicheros(Scanner scanner) throws DamfilmsServerError {
 
-		while(scanner.hasNextLine()) 
-		{
+        scanner.nextLine();
 
-		String lineaDelFichero = scanner.nextLine();
+        while (scanner.hasNextLine()) {
 
-		Genero genero = new Genero();
-			
-		genero.setNombre(lineaDelFichero);
-				
-		this.generoRepository.saveAndFlush(genero);
-		}
+            String lineaDelFichero = scanner.nextLine();
 
-	}
-	
+            Genero genero = new Genero();
+
+            genero.setNombre(lineaDelFichero);
+
+            this.generoRepository.saveAndFlush(genero);
+        }
+
+    }
+
 }

@@ -14,82 +14,68 @@ import org.springframework.stereotype.Service;
 import es.iesjandula.damfilms.models.Serie;
 import es.iesjandula.damfilms.models.Temporada;
 import es.iesjandula.damfilms.models.Tipo;
-import es.iesjandula.damfilms.models.ids.TemporadaId;
 import es.iesjandula.damfilms.repositories.ISerieRepository;
 import es.iesjandula.damfilms.repositories.ITemporadaRepository;
 import es.iesjandula.damfilms.repositories.ITipoRepository;
 import es.iesjandula.damfilms.utils.DamfilmsServerError;
 
+/**
+ * Servicio encargado de parsear los ficheros de datos relacionados con las series
+ * y almacenar esa información en la base de datos.
+ */
 @Service
 public class ParseoSeriesImpl implements IParseoSerie {
 
-	@Autowired
-	ISerieRepository serieRepository;
+    @Autowired
+    ISerieRepository serieRepository;
 
-	@Autowired
-	ITipoRepository tipoRepository;
-	
-	@Autowired
-	ITemporadaRepository iTemporadaRepository;
-	
-	@Override
-	public void parseaFicheros(Scanner scanner) throws DamfilmsServerError {
+    @Autowired
+    ITipoRepository tipoRepository;
+    
+    @Autowired
+    ITemporadaRepository iTemporadaRepository;
+    
+    /**
+     * Método que procesa las líneas de un fichero de entrada, crea objetos de tipo
+     * Serie y los guarda en la base de datos.
+     * 
+     * @param scanner Objeto Scanner que lee las líneas del fichero.
+     * @throws DamfilmsServerError Si ocurre un error al procesar el fichero o
+     *                              almacenar las series en la base de datos.
+     */
+    @Override
+    public void parseaFicheros(Scanner scanner) throws DamfilmsServerError {
 
-		LocalDateTime now = LocalDateTime.now();
-
+        LocalDateTime now = LocalDateTime.now();
         Date date = Date.from(now.atZone(ZoneId.systemDefault()).toInstant());
-		
-		scanner.nextLine();
+        
+        scanner.nextLine();
 
-		while (scanner.hasNextLine()) {
+        while (scanner.hasNextLine()) {
 
-			String lineaDelFichero = scanner.nextLine();
+            String lineaDelFichero = scanner.nextLine();
 
-			String[] lineaDelFicheroTroceada = lineaDelFichero.split(",");
-			
-			//String[] lineaDelFicheroTroceadaTemporadas = lineaDelFicheroTroceada[7].split(" ");
+            String[] lineaDelFicheroTroceada = lineaDelFichero.split(",");
 
-			Serie serie = new Serie();
-			
-			List<Temporada> listaTemporadas = new ArrayList<Temporada>();
+            Serie serie = new Serie();
+            List<Temporada> listaTemporadas = new ArrayList<Temporada>();
 
-			serie.setTitulo(lineaDelFicheroTroceada[1]);
-			serie.setDuracion(lineaDelFicheroTroceada[2]);
-			serie.setFechaLlegada(date);
-			serie.setPoster(lineaDelFicheroTroceada[3]);
-			Optional<Tipo>optionalTipo = this.tipoRepository.findById(lineaDelFicheroTroceada[4]);
-			if(!optionalTipo.isEmpty()){
-			serie.setTipo(optionalTipo.get());
-			}
-			serie.setPopindex(Integer.valueOf(lineaDelFicheroTroceada[5]));
-			
-			serie.setTemporadas(listaTemporadas);
-			
-			/*
-			List<Temporada> listaTemporadasId = new ArrayList<Temporada>(); 
-			
-			for (String temporada : lineaDelFicheroTroceadaTemporadas)
-			{
-				String[] lineaDelFicheroTroceadaElementos = temporada.split(":");
-				
-				TemporadaId temporadaId = new TemporadaId(Integer.valueOf(lineaDelFicheroTroceadaElementos[0]),Long.valueOf(lineaDelFicheroTroceadaElementos[1]));
-				
-				
-				
-				Optional<Temporada>optionalTemporada = this.iTemporadaRepository.findById(temporadaId);
-				if(!optionalTemporada.isEmpty()){
-					listaTemporadasId.add(optionalTemporada.get());
-				}	
-				
-				
-			}
-			
-			serie.setTemporadas(listaTemporadasId);
-			*/
-			
-			serieRepository.saveAndFlush(serie);
-			
-		}
+            serie.setTitulo(lineaDelFicheroTroceada[1]);
+            serie.setDuracion(lineaDelFicheroTroceada[2]);
+            serie.setFechaLlegada(date);
+            serie.setPoster(lineaDelFicheroTroceada[3]);
 
-	}
+            Optional<Tipo> optionalTipo = this.tipoRepository.findById(lineaDelFicheroTroceada[4]);
+            if (!optionalTipo.isEmpty()) {
+                serie.setTipo(optionalTipo.get());
+            }
+
+            serie.setPopindex(Integer.valueOf(lineaDelFicheroTroceada[5]));
+            
+            serie.setTemporadas(listaTemporadas);
+
+            serieRepository.saveAndFlush(serie);
+        }
+
+    }
 }

@@ -7,20 +7,34 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Clase que representa el identificador compuesto para la relación entre un usuario y un documental.
+ * 
+ * Esta clase se utiliza como identificador único compuesto para la relación entre un usuario y un documental.
+ * El identificador está compuesto por el correo electrónico del usuario y el identificador del documental.
+ * 
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Embeddable
 public class UsuarioDocumentalId implements Serializable{
 	
-
 	/**
-	 * 
+	 * Serial Version UID.
+	 * Se utiliza para asegurar que los objetos serializados sean compatibles entre diferentes versiones.
 	 */
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Correo electrónico del usuario.
+	 * Representa el correo electrónico único del usuario asociado al documental.
+	 */
 	private String email;
 	
+	/**
+	 * Identificador del documental.
+	 * Representa el identificador único del documental asociado a este usuario.
+	 */
 	private DocumentalId documentalId;
-
 }
