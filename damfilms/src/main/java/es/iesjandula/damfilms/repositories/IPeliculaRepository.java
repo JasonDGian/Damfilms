@@ -15,13 +15,14 @@ import es.iesjandula.damfilms.models.ids.PeliculaId;
 public interface IPeliculaRepository extends JpaRepository<Pelicula, PeliculaId>
 {
 	@Query("SELECT p FROM Pelicula p " +
-		       "JOIN GeneroPelicula gp ON p.titulo = gp.peliculaTitulo " +
-		       "WHERE (:tipoNombre IS NULL OR p.tipoNombre = :tipoNombre) " +
-		       "AND (:generoNombre IS NULL OR gp.generoNombre = :generoNombre)")
+		       "JOIN GeneroPelicula gp ON p.peliculaId = gp.pelicula.peliculaId " +
+		       "WHERE (:tipoNombre IS NULL OR p.tipo.nombre = :tipoNombre) " +
+		       "AND (:generoNombre IS NULL OR gp.genero.nombre = :generoNombre)")
 		List<Pelicula> encontrarPeliculasPorTipoYGenero(
 		    @Param("tipoNombre") String tipoNombre,
 		    @Param("generoNombre") String generoNombre
 		);
+
 	@Query("SELECT p FROM Pelicula p ORDER BY p.popindex DESC")
 	List<Pelicula> encontrarPeliculasOrdenadasPorPopularidad();
 	@Query("SELECT p FROM Pelicula p ORDER BY p.fechaLlegada DESC")

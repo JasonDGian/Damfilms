@@ -13,10 +13,12 @@ import es.iesjandula.damfilms.models.Serie;
 @Repository
 public interface ISerieRepository extends JpaRepository<Serie, Long>
 {
+
 	@Query("SELECT s FROM Serie s " +
-		       "JOIN GeneroSerie gs ON s.id = gs.serieId " +
-		       "WHERE (:tipoNombre IS NULL OR s.tipoNombre = :tipoNombre) " +
-		       "AND (:generoNombre IS NULL OR gs.generoNombre = :generoNombre)")
+		       "JOIN s.generos gs " + 
+		       "JOIN gs.genero g " + 
+		       "WHERE (:tipoNombre IS NULL OR s.tipo.nombre = :tipoNombre) " +
+		       "AND (:generoNombre IS NULL OR g.nombre = :generoNombre)")
 		List<Serie> encontrarSeriesPorTipoYGenero(
 		    @Param("tipoNombre") String tipoNombre,
 		    @Param("generoNombre") String generoNombre

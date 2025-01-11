@@ -15,12 +15,14 @@ import es.iesjandula.damfilms.models.ids.DocumentalId;
 public interface IDocumentalRepository extends JpaRepository<Documental, DocumentalId> 
 {
 	@Query("SELECT d FROM Documental d " +
-		       "WHERE (:generoNombre IS NULL OR gp.generoNombre = :generoNombre)")
-		List<Documental> encontrarDocuemntalPorGenero(
+		       "WHERE (:generoNombre IS NULL OR d.genero.nombre = :generoNombre)")
+		List<Documental> encontrarDocumentalPorGenero(
 		    @Param("generoNombre") String generoNombre
 		);
+	
 	@Query("SELECT d FROM Documental d ORDER BY d.popindex DESC")
 	List<Documental> encontrarDocumentalOrdenadasPorPopularidad();
+	
 	@Query("SELECT d FROM Documental d ORDER BY d.fechaLlegada DESC")
 	List<Documental> encontrarDocumentalOrdenadasPorFechaDeLlegada();
 	
