@@ -207,7 +207,7 @@ public class DataController
 	 * Devuelve una lista de N peliculas ordenadas de más
 	 * reciente a menos reciente a partir de su fecha de subida.
 	 */
-	@RequestMapping(method = RequestMethod.GET, value= "/movies/popular")
+	@RequestMapping(method = RequestMethod.GET, value= "/movies/latest")
 	 public ResponseEntity<?> getLatestMovies()
 	 {
 		List<Pelicula> peliculaList = this.iPeliculaRepositoy.encontrarPeliculasOrdenadasPorFechaDeLlegada();
@@ -244,7 +244,7 @@ public class DataController
 			 return ResponseEntity.ok().body( documentalList);
 		}
 		
-		List<Documental> documentalList = this.iDocumentalRepository.encontrarDocuemntalPorGenero(genero);
+		List<Documental> documentalList = this.iDocumentalRepository.encontrarDocumentalPorGenero(genero);
 		 if(documentalList.isEmpty())
 		 {
 			 return ResponseEntity.status(404).body("No se han cargado series");

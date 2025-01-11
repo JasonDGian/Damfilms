@@ -22,8 +22,8 @@ import es.iesjandula.damfilms.models.ids.PeliculaId;
  * - encontrarPeliculasOrdenadasPorFechaDeLlegada: Obtiene películas ordenadas por fecha de llegada.
  */
 @Repository
-public interface IPeliculaRepository extends JpaRepository<Pelicula, PeliculaId> {
-
+public interface IPeliculaRepository extends JpaRepository<Pelicula, PeliculaId>
+{
     /**
      * Encuentra películas que coinciden con el tipo y género especificados.
      * 
@@ -31,14 +31,14 @@ public interface IPeliculaRepository extends JpaRepository<Pelicula, PeliculaId>
      * @param generoNombre el nombre del género de la película (opcional).
      * @return lista de películas que coinciden con los filtros proporcionados.
      */
-    @Query("SELECT p FROM Pelicula p " +
-               "JOIN GeneroPelicula gp ON p.titulo = gp.peliculaTitulo " +
-               "WHERE (:tipoNombre IS NULL OR p.tipoNombre = :tipoNombre) " +
-               "AND (:generoNombre IS NULL OR gp.generoNombre = :generoNombre)")
-    List<Pelicula> encontrarPeliculasPorTipoYGenero(
-        @Param("tipoNombre") String tipoNombre,
-        @Param("generoNombre") String generoNombre
-    );
+	@Query("SELECT p FROM Pelicula p " +
+		       "JOIN GeneroPelicula gp ON p.peliculaId = gp.pelicula.peliculaId " +
+		       "WHERE (:tipoNombre IS NULL OR p.tipo.nombre = :tipoNombre) " +
+		       "AND (:generoNombre IS NULL OR gp.genero.nombre = :generoNombre)")
+		List<Pelicula> encontrarPeliculasPorTipoYGenero(
+		    @Param("tipoNombre") String tipoNombre,
+		    @Param("generoNombre") String generoNombre
+		);
 
     /**
      * Obtiene las películas ordenadas por su índice de popularidad (popindex) en orden descendente.

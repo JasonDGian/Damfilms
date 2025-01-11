@@ -21,8 +21,8 @@ import es.iesjandula.damfilms.models.Serie;
  * - encontrarSeriesOrdenadasPorFechaDeLlegada: Obtiene series ordenadas por fecha de llegada.
  */
 @Repository
-public interface ISerieRepository extends JpaRepository<Serie, Long> {
-
+public interface ISerieRepository extends JpaRepository<Serie, Long>
+{
     /**
      * Encuentra series que coinciden con el tipo y el género especificados.
      * 
@@ -30,14 +30,15 @@ public interface ISerieRepository extends JpaRepository<Serie, Long> {
      * @param generoNombre el nombre del género de la serie (opcional).
      * @return lista de series que coinciden con los filtros de tipo y género.
      */
-    @Query("SELECT s FROM Serie s " +
-               "JOIN GeneroSerie gs ON s.id = gs.serieId " +
-               "WHERE (:tipoNombre IS NULL OR s.tipoNombre = :tipoNombre) " +
-               "AND (:generoNombre IS NULL OR gs.generoNombre = :generoNombre)")
-    List<Serie> encontrarSeriesPorTipoYGenero(
-        @Param("tipoNombre") String tipoNombre,
-        @Param("generoNombre") String generoNombre
-    );
+	@Query("SELECT s FROM Serie s " +
+		       "JOIN s.generos gs " + 
+		       "JOIN gs.genero g " + 
+		       "WHERE (:tipoNombre IS NULL OR s.tipo.nombre = :tipoNombre) " +
+		       "AND (:generoNombre IS NULL OR g.nombre = :generoNombre)")
+		List<Serie> encontrarSeriesPorTipoYGenero(
+		    @Param("tipoNombre") String tipoNombre,
+		    @Param("generoNombre") String generoNombre
+		);
 
     /**
      * Obtiene las series ordenadas por su índice de popularidad (popindex) en orden descendente.

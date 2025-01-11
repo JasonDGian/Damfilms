@@ -22,19 +22,19 @@ import es.iesjandula.damfilms.models.ids.DocumentalId;
  * - encontrarDocumentalesOrdenadasPorFechaDeLlegada: Obtiene documentales ordenados por fecha de llegada.
  */
 @Repository
-public interface IDocumentalRepository extends JpaRepository<Documental, DocumentalId> {
-
+public interface IDocumentalRepository extends JpaRepository<Documental, DocumentalId> 
+{
     /**
      * Encuentra documentales que coinciden con el género especificado.
      * 
      * @param generoNombre el nombre del género del documental (opcional).
      * @return lista de documentales que coinciden con el filtro de género.
      */
-    @Query("SELECT d FROM Documental d " +
-               "WHERE (:generoNombre IS NULL OR gp.generoNombre = :generoNombre)")
-    List<Documental> encontrarDocuemntalPorGenero(
-        @Param("generoNombre") String generoNombre
-    );
+	@Query("SELECT d FROM Documental d " +
+		       "WHERE (:generoNombre IS NULL OR d.genero.nombre = :generoNombre)")
+		List<Documental> encontrarDocumentalPorGenero(
+		    @Param("generoNombre") String generoNombre
+		);
 
     /**
      * Obtiene los documentales ordenados por su índice de popularidad (popindex) en orden descendente.
