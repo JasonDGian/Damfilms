@@ -50,7 +50,7 @@ a a:link {
 }
 
 
-/------ ESTILO POSTERS AUTOMATICOS ------/
+/*------ ESTILO POSTERS AUTOMATICOS ------*/
 
 /* CONTENEDOR DE SECCIONES POSTER*/
 .movie-box-container .movie-box-container2{ 
@@ -93,7 +93,7 @@ a a:link {
     width: 170px;
 }
 
-/efecto on hover de poster/
+/*efecto on hover de poster*/
 .box-content-son:hover{
     z-index: 1000;
     transition-duration: 0.3s;
@@ -102,7 +102,7 @@ a a:link {
     background-image: linear-gradient( rgba(0, 0, 0, 0.901) 35%, rgba(0, 0, 0, 0.205) 100%);
 }
 
-/TEXTO POSTER/
+/*TEXTO POSTER*/
 .titulopelicula{
     padding:10px;
 }
@@ -114,9 +114,9 @@ a a:link {
     font-size: 9pt;
 }
 
-/------ FIN ESTILO POSTERS AUTOMATICOS ------/
+/*------ FIN ESTILO POSTERS AUTOMATICOS ------*/
 
-/CAJA QUE CONTIENE LOS BOTONES DE FILTRADO/
+/*CAJA QUE CONTIENE LOS BOTONES DE FILTRADO*/
 #filterBox{
     padding-left: 10px;
     margin-top: 30px;
@@ -131,7 +131,7 @@ a a:link {
     color: black;
 }
 
-/ESTILO DE OBJETOS DE MENU FILTRO/
+/*ESTILO DE OBJETOS DE MENU FILTRO*/
 #DropDownItem{
     font-weight: bold;
     color: black;
